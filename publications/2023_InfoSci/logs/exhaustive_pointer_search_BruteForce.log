@@ -1,0 +1,46 @@
+2023-01-25 16:59:56,888 - root - ------------------------------------------------------------------------
+2023-01-25 16:59:56,888 - root -                EXHAUSTIVE POINTER SEARCH USING BRUTE FORCE
+2023-01-25 16:59:56,888 - root - ------------------------------------------------------------------------
+
+2023-01-25 16:59:56,888 - root - ------------------- Gaussian Clouds Generation ---------------------
+
+2023-01-25 16:59:56,888 - root - Creating train and test as gaussian_clouds_npc200_False dataset
+
+2023-01-25 16:59:56,894 - root - Creating train and test as gaussian_clouds_npc200_True dataset
+
+2023-01-25 16:59:56,897 - root -  
+2023-01-25 16:59:56,897 - root - -------------------------- Pointer Search  ------------------------------
+2023-01-25 16:59:56,897 - root -  
+2023-01-25 16:59:56,897 - root - --------- Gaussian Clouds with 200 points per cloud and False overlap-------
+2023-01-25 16:59:56,898 - root - ------------------------------------------------------------------------
+2023-01-25 16:59:56,898 - root -                           KNN Searching
+2023-01-25 16:59:56,898 - root - ------------------------------------------------------------------------
+
+2023-01-25 16:59:56,898 - root - 
+2023-01-25 16:59:56,898 - root - ---- Searching the 5 nearest neighbors within BruteForce over gaussian_clouds_npc200_False dataset using euclidean distance. ----
+2023-01-25 16:59:56,901 - root - Loading train and test set from ./data/gaussian_clouds_npc200_False_train_test_set.hdf5
+
+2023-01-25 16:59:56,902 - root - Building index
+2023-01-25 16:59:56,902 - root - Index time= 0.0003298549999999345 seconds
+2023-01-25 16:59:56,973 - root - Search time= 0.0709723849999997 seconds
+
+2023-01-25 16:59:56,991 - root - Neighbors stored at ./NearestNeighbors/knn_gaussian_clouds_npc200_False_5_euclidean_BruteForce.hdf5
+2023-01-25 16:59:56,991 - root - ------------------------------------------------------------------------
+
+2023-01-25 16:59:56,991 - root -  
+2023-01-25 16:59:56,992 - root - --------- Gaussian Clouds with 200 points per cloud and True overlap-------
+2023-01-25 16:59:56,993 - root - ------------------------------------------------------------------------
+2023-01-25 16:59:56,993 - root -                           KNN Searching
+2023-01-25 16:59:56,993 - root - ------------------------------------------------------------------------
+
+2023-01-25 16:59:56,993 - root - 
+2023-01-25 16:59:56,993 - root - ---- Searching the 5 nearest neighbors within BruteForce over gaussian_clouds_npc200_True dataset using euclidean distance. ----
+2023-01-25 16:59:56,995 - root - Loading train and test set from ./data/gaussian_clouds_npc200_True_train_test_set.hdf5
+
+2023-01-25 16:59:56,996 - root - Building index
+2023-01-25 16:59:56,996 - root - Index time= 0.00036240999999970214 seconds
+2023-01-25 16:59:57,048 - root - Search time= 0.05183268800000018 seconds
+
+2023-01-25 16:59:57,051 - root - Neighbors stored at ./NearestNeighbors/knn_gaussian_clouds_npc200_True_5_euclidean_BruteForce.hdf5
+2023-01-25 16:59:57,051 - root - ------------------------------------------------------------------------
+

@@ -1,0 +1,56 @@
+2023-01-25 17:42:39,813 - root - ------------------------------------------------------------------------
+2023-01-25 17:42:39,813 - root -                    EXHAUSTIVE POINTER SEARCH USING MASK
+2023-01-25 17:42:39,813 - root - ------------------------------------------------------------------------
+
+2023-01-25 17:42:39,814 - root -  
+2023-01-25 17:42:39,814 - root - --------- Gaussian Clouds with 200 points per cloud and False overlap-------
+2023-01-25 17:42:39,814 - root - ------------------------------------------------------------------------
+2023-01-25 17:42:39,814 - root -                           KNN Searching
+2023-01-25 17:42:39,815 - root - ------------------------------------------------------------------------
+
+2023-01-25 17:42:39,815 - root - 
+2023-01-25 17:42:39,815 - root - ---- Searching the 5 nearest neighbors within MASK over gaussian_clouds_npc200_False dataset using euclidean distance. ----
+2023-01-25 17:42:39,815 - root - 
+2023-01-25 17:42:39,815 - root - ---- MASK Parameters - tam_grupo=16 - n_centroids=8 - radius=35 ----
+2023-01-25 17:42:39,816 - root - Loading train and test set from ./data/gaussian_clouds_npc200_False_train_test_set.hdf5
+
+2023-01-25 17:42:43,774 - mask.KNN_np - tree time=3.9544975429999996 seconds
+2023-01-25 17:43:31,579 - root - Search time = 47.803214627 seconds
+
+2023-01-25 17:43:31,579 - root - Average time spent in searching a single point = 0.029877009141875
+2023-01-25 17:43:31,579 - root - Speed (points/s) = 33.470552398714524
+
+2023-01-25 17:43:31,581 - root - Neighbors stored at ./NearestNeighbors/knn_gaussian_clouds_npc200_False_5_euclidean_MASK_tg16_nc8_r35.hdf5
+2023-01-25 17:43:31,582 - root - ------------------------------------------------------------------------
+
+2023-01-25 17:43:31,582 - root - -------------------------- Error rate  ------------------------------
+2023-01-25 17:43:31,583 - root - Loading neighbors from ./NearestNeighbors/knn_gaussian_clouds_npc200_False_5_euclidean_BruteForce.hdf5
+2023-01-25 17:43:31,590 - root - Loading neighbors from ./NearestNeighbors/knn_gaussian_clouds_npc200_False_5_euclidean_MASK_tg16_nc8_r35.hdf5
+2023-01-25 17:43:31,604 - root - Found points rate: 8000/8000.0
+2023-01-25 17:43:31,605 - root - Error rate: 0.0%
+2023-01-25 17:43:31,605 - root -  
+2023-01-25 17:43:31,605 - root - --------- Gaussian Clouds with 200 points per cloud and True overlap-------
+2023-01-25 17:43:31,606 - root - ------------------------------------------------------------------------
+2023-01-25 17:43:31,606 - root -                           KNN Searching
+2023-01-25 17:43:31,606 - root - ------------------------------------------------------------------------
+
+2023-01-25 17:43:31,606 - root - 
+2023-01-25 17:43:31,606 - root - ---- Searching the 5 nearest neighbors within MASK over gaussian_clouds_npc200_True dataset using euclidean distance. ----
+2023-01-25 17:43:31,606 - root - 
+2023-01-25 17:43:31,606 - root - ---- MASK Parameters - tam_grupo=16 - n_centroids=8 - radius=35 ----
+2023-01-25 17:43:31,607 - root - Loading train and test set from ./data/gaussian_clouds_npc200_True_train_test_set.hdf5
+
+2023-01-25 17:43:35,130 - mask.KNN_np - tree time=3.520848358000002 seconds
+2023-01-25 17:44:20,795 - root - Search time = 45.664239167000005 seconds
+
+2023-01-25 17:44:20,795 - root - Average time spent in searching a single point = 0.028540149479375002
+2023-01-25 17:44:20,795 - root - Speed (points/s) = 35.0383588818505
+
+2023-01-25 17:44:20,797 - root - Neighbors stored at ./NearestNeighbors/knn_gaussian_clouds_npc200_True_5_euclidean_MASK_tg16_nc8_r35.hdf5
+2023-01-25 17:44:20,797 - root - ------------------------------------------------------------------------
+
+2023-01-25 17:44:20,797 - root - -------------------------- Error rate  ------------------------------
+2023-01-25 17:44:20,799 - root - Loading neighbors from ./NearestNeighbors/knn_gaussian_clouds_npc200_True_5_euclidean_BruteForce.hdf5
+2023-01-25 17:44:20,805 - root - Loading neighbors from ./NearestNeighbors/knn_gaussian_clouds_npc200_True_5_euclidean_MASK_tg16_nc8_r35.hdf5
+2023-01-25 17:44:20,820 - root - Found points rate: 8000/8000.0
+2023-01-25 17:44:20,821 - root - Error rate: 0.0%

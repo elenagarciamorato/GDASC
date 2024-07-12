@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="03d4f905-4ac8-45af-94c3-b6a38af0ef33" name="egarciapi@dslab">
+        <fileTransfer rootFolder="/home/egarciapi" accessType="SFTP" host="dslab01" port="22" sshConfigId="cafbdc8c-181d-48b8-a31b-e987f0763d68" sshConfig="egarciapi@dslab01:22" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
