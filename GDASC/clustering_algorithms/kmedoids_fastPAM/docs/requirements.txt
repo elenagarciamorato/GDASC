@@ -1,2 +1,0 @@
-kmedoids
-scikit-learn
