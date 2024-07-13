@@ -18,7 +18,7 @@ def FLANN_nn_index(dataset, ncentroids, distance_type, algorithm):
     # print centroids
 
     # Store index built on disk to use it later on a file called 'index_'
-    flann.save_index('./algorithms/FLANN/index_')
+    flann.save_index('./benchmarks/algorithms/FLANN/index_')
     logging.info("Saving FLANN index at 'index_'")
 
     # Store index on disk to obtain its size
@@ -35,13 +35,13 @@ def FLANN_nn_search(dataset, seq_buscada, k, distance_type, algorithm):
     set_distance_type(distance_type, order=0)
 
     # If there is an index stored on disk:
-    if os.path.isfile('./algorithms/FLANN/index_'):
+    if os.path.isfile('./benchmarks/algorithms/FLANN/index_'):
 
         # Create a FLANN instance
         flann = FLANN()
 
         # Load the index stored
-        flann.load_index('./algorithms/FLANN/index_', dataset)
+        flann.load_index('./benchmarks/algorithms/FLANN/index_', dataset)
         #logging.info("Loading FLANN index from 'index_'...")
 
     else:

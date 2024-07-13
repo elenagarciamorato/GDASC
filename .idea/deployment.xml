@@ -5,7 +5,7 @@
       <paths name="egarciapi@dslab">
         <serverdata>
           <mappings>
-            <mapping deploy="/Kmeans-index_DS" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/GDASC_DS" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

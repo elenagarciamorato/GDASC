@@ -6,7 +6,14 @@ import csv
 import logging
 import data.load_train_test_set as load_train_test_set
 import re
-import configparser
+
+import six
+from six.moves import configparser
+
+if six.PY2:
+  ConfigParser = configparser.SafeConfigParser
+else:
+  ConfigParser = configparser.ConfigParser
 
 
 # Store query points and its neighbors on a csv file
@@ -128,8 +135,7 @@ def read_config_file(config_file):
 
     elif method == 'FLANN':
         ncentroids = config.getint('method', 'ncentroids')  # At GDASC, ncentroids = tam_grupo*n_centroides = 8*16 = 128
-        algorithm = config.get('method',
-                               'algorithm')  # Possible values: linear, kdtree, kmeans, composite, autotuned - default: kdtree
+        algorithm = config.get('method','algorithm')  # Possible values: linear, kdtree, kmeans, composite, autotuned - default: kdtree
 
         parameters = [dataset, k, distance, method, ncentroids, algorithm]
 

@@ -1,0 +1,238 @@
+2024-07-13 09:51:31,337 - root - ------------------------------------------------------------------------
+2024-07-13 09:51:31,337 - root -                        plotting over municipios Dataset RECALL
+2024-07-13 09:51:31,337 - root - ------------------------------------------------------------------------
+2024-07-13 09:51:31,337 - root - Search of k neighbors over a choosen dataset, using different methods, run_benchmarks.py
+2024-07-13 09:51:31,337 - root - ------------------------------------------------------------------------
+
+2024-07-13 09:51:31,337 - root - Distances: ['manhattan', 'euclidean', 'chebyshev', 'cosine'] 
+2024-07-13 09:51:31,337 - root - Methods: ['FLANN', 'PYNN', 'GDASC']
+2024-07-13 09:51:31,337 - root - plotting: [5, 10, 15]
+2024-07-13 09:51:31,337 - root - GDASC params: tg=60, nc=30, r=40, algorithm=kmedoids, implementation=fastkmedoids
+
+2024-07-13 09:51:31,337 - root - ------------  manhattan distance  --------------------
+
+2024-07-13 09:51:31,337 - root - -- FLANN method --
+
+2024-07-13 09:51:31,340 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_Exact.hdf5
+2024-07-13 09:51:31,343 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_FLANN.hdf5
+2024-07-13 09:51:31,344 - root - Correct neighbors rate: 455/500.0
+2024-07-13 09:51:31,344 - root - Hit percentage: 91.0%
+
+
+2024-07-13 09:51:31,348 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_Exact.hdf5
+2024-07-13 09:51:31,349 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_FLANN.hdf5
+2024-07-13 09:51:31,350 - root - Correct neighbors rate: 900/1000.0
+2024-07-13 09:51:31,350 - root - Hit percentage: 90.0%
+
+
+2024-07-13 09:51:31,354 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_Exact.hdf5
+2024-07-13 09:51:31,355 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_FLANN.hdf5
+2024-07-13 09:51:31,356 - root - Correct neighbors rate: 1342/1500.0
+2024-07-13 09:51:31,356 - root - Hit percentage: 89.46666666666667%
+
+
+2024-07-13 09:51:31,357 - root - -- PYNN method --
+
+2024-07-13 09:51:31,358 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_Exact.hdf5
+2024-07-13 09:51:31,360 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_PYNN.hdf5
+2024-07-13 09:51:31,361 - root - Correct neighbors rate: 498/500.0
+2024-07-13 09:51:31,361 - root - Hit percentage: 99.6%
+
+
+2024-07-13 09:51:31,362 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_Exact.hdf5
+2024-07-13 09:51:31,365 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_PYNN.hdf5
+2024-07-13 09:51:31,366 - root - Correct neighbors rate: 999/1000.0
+2024-07-13 09:51:31,366 - root - Hit percentage: 99.9%
+
+
+2024-07-13 09:51:31,368 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_Exact.hdf5
+2024-07-13 09:51:31,372 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_PYNN.hdf5
+2024-07-13 09:51:31,373 - root - Correct neighbors rate: 1499/1500.0
+2024-07-13 09:51:31,373 - root - Hit percentage: 99.93333333333332%
+
+
+2024-07-13 09:51:31,374 - root - -- GDASC method --
+
+2024-07-13 09:51:31,375 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_Exact.hdf5
+2024-07-13 09:51:31,377 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_manhattan_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,378 - root - Correct neighbors rate: 500/500.0
+2024-07-13 09:51:31,378 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,379 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_Exact.hdf5
+2024-07-13 09:51:31,382 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_manhattan_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,383 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,383 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,386 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_Exact.hdf5
+2024-07-13 09:51:31,392 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_manhattan_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,393 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,393 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,393 - root - ------------  euclidean distance  --------------------
+
+2024-07-13 09:51:31,393 - root - -- FLANN method --
+
+2024-07-13 09:51:31,396 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_Exact.hdf5
+2024-07-13 09:51:31,398 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_FLANN.hdf5
+2024-07-13 09:51:31,399 - root - Correct neighbors rate: 495/500.0
+2024-07-13 09:51:31,399 - root - Hit percentage: 99.0%
+
+
+2024-07-13 09:51:31,400 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_Exact.hdf5
+2024-07-13 09:51:31,405 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_FLANN.hdf5
+2024-07-13 09:51:31,406 - root - Correct neighbors rate: 898/1000.0
+2024-07-13 09:51:31,406 - root - Hit percentage: 89.8%
+
+
+2024-07-13 09:51:31,406 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_Exact.hdf5
+2024-07-13 09:51:31,411 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_FLANN.hdf5
+2024-07-13 09:51:31,413 - root - Correct neighbors rate: 1196/1500.0
+2024-07-13 09:51:31,413 - root - Hit percentage: 79.73333333333333%
+
+
+2024-07-13 09:51:31,413 - root - -- PYNN method --
+
+2024-07-13 09:51:31,415 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_Exact.hdf5
+2024-07-13 09:51:31,416 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_PYNN.hdf5
+2024-07-13 09:51:31,417 - root - Correct neighbors rate: 500/500.0
+2024-07-13 09:51:31,417 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,420 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_Exact.hdf5
+2024-07-13 09:51:31,421 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_PYNN.hdf5
+2024-07-13 09:51:31,422 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,422 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,425 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_Exact.hdf5
+2024-07-13 09:51:31,428 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_PYNN.hdf5
+2024-07-13 09:51:31,429 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,429 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,430 - root - -- GDASC method --
+
+2024-07-13 09:51:31,432 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_Exact.hdf5
+2024-07-13 09:51:31,434 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_euclidean_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,435 - root - Correct neighbors rate: 500/500.0
+2024-07-13 09:51:31,435 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,437 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_Exact.hdf5
+2024-07-13 09:51:31,441 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_euclidean_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,442 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,442 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,446 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_Exact.hdf5
+2024-07-13 09:51:31,447 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_euclidean_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,448 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,448 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,449 - root - ------------  chebyshev distance  --------------------
+
+2024-07-13 09:51:31,449 - root - -- FLANN method --
+
+2024-07-13 09:51:31,450 - root - -- PYNN method --
+
+2024-07-13 09:51:31,452 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,454 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_chebyshev_PYNN.hdf5
+2024-07-13 09:51:31,455 - root - Correct neighbors rate: 498/500.0
+2024-07-13 09:51:31,455 - root - Hit percentage: 99.6%
+
+
+2024-07-13 09:51:31,459 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,462 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_chebyshev_PYNN.hdf5
+2024-07-13 09:51:31,463 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,463 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,467 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,470 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_chebyshev_PYNN.hdf5
+2024-07-13 09:51:31,472 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,472 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,472 - root - -- GDASC method --
+
+2024-07-13 09:51:31,472 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,475 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_chebyshev_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,476 - root - Correct neighbors rate: 500/500.0
+2024-07-13 09:51:31,476 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,478 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,482 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_chebyshev_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,483 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,483 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,484 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_chebyshev_Exact.hdf5
+2024-07-13 09:51:31,485 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_chebyshev_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,486 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,486 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,487 - root - ------------  cosine distance  --------------------
+
+2024-07-13 09:51:31,487 - root - -- FLANN method --
+
+2024-07-13 09:51:31,488 - root - -- PYNN method --
+
+2024-07-13 09:51:31,490 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_cosine_Exact.hdf5
+2024-07-13 09:51:31,494 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_cosine_PYNN.hdf5
+2024-07-13 09:51:31,495 - root - Correct neighbors rate: 185/500.0
+2024-07-13 09:51:31,495 - root - Hit percentage: 37.0%
+
+
+2024-07-13 09:51:31,499 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_cosine_Exact.hdf5
+2024-07-13 09:51:31,502 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_cosine_PYNN.hdf5
+2024-07-13 09:51:31,503 - root - Correct neighbors rate: 560/1000.0
+2024-07-13 09:51:31,503 - root - Hit percentage: 56.00000000000001%
+
+
+2024-07-13 09:51:31,507 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_cosine_Exact.hdf5
+2024-07-13 09:51:31,511 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_cosine_PYNN.hdf5
+2024-07-13 09:51:31,512 - root - Correct neighbors rate: 1067/1500.0
+2024-07-13 09:51:31,512 - root - Hit percentage: 71.13333333333334%
+
+
+2024-07-13 09:51:31,513 - root - -- GDASC method --
+
+2024-07-13 09:51:31,513 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_cosine_Exact.hdf5
+2024-07-13 09:51:31,516 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_5_cosine_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,517 - root - Correct neighbors rate: 500/500.0
+2024-07-13 09:51:31,517 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,518 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_cosine_Exact.hdf5
+2024-07-13 09:51:31,521 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_10_cosine_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,523 - root - Correct neighbors rate: 1000/1000.0
+2024-07-13 09:51:31,523 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,523 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_cosine_Exact.hdf5
+2024-07-13 09:51:31,527 - root - Loading neighbors from ./benchmarks/NearestNeighbors/municipios/knn_municipios_15_cosine_GDASC_tg60_nc30_r40_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:31,529 - root - Correct neighbors rate: 1500/1500.0
+2024-07-13 09:51:31,529 - root - Hit percentage: 100.0%
+
+
+2024-07-13 09:51:31,534 - root - mean Average Point (mAP):
+
+        Dataset   Distance Method      Recall
+0   municipios  chebyshev  FLANN         NaN
+1   municipios  chebyshev  GDASC  100.000000
+2   municipios  chebyshev   PYNN   99.866667
+3   municipios     cosine  FLANN         NaN
+4   municipios     cosine  GDASC  100.000000
+5   municipios     cosine   PYNN   54.711111
+6   municipios  euclidean  FLANN   89.511111
+7   municipios  euclidean  GDASC  100.000000
+8   municipios  euclidean   PYNN  100.000000
+9   municipios  manhattan  FLANN   90.155556
+10  municipios  manhattan  GDASC  100.000000
+11  municipios  manhattan   PYNN   99.811111

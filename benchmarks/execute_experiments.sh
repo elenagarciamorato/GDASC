@@ -34,9 +34,9 @@ do
 
   if [ "$method" = "FLANN" ]
   then
-    $(python2 -m experiments.test_launcher_py2 $file)
+    $(python2 -m benchmarks.test_launcher_py2 $file)
   else
-    $(python3 -m experiments.test_launcher_py3 $file)
+    $(python3 -m benchmarks.test_launcher_py3 $file)
   fi
 done
 

@@ -214,7 +214,7 @@ def print_mAP_pointplot(datasets, distances, methods, mAP):
 
         # Set title and y-axis limits (0-100)
         plt.suptitle(dataset, fontsize= 25,  ha='center')
-        ax.set_ylim(0,100)
+        #ax.set_ylim(0,100)
         ax.set_ylabel('Recall (mAP)')
 
         # Show graph

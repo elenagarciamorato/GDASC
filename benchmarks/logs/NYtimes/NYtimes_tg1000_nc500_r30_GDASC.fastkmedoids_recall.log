@@ -1,0 +1,238 @@
+2024-07-13 09:51:49,015 - root - ------------------------------------------------------------------------
+2024-07-13 09:51:49,015 - root -                        plotting over NYtimes Dataset RECALL
+2024-07-13 09:51:49,015 - root - ------------------------------------------------------------------------
+2024-07-13 09:51:49,015 - root - Search of k neighbors over a choosen dataset, using different methods, run_benchmarks.py
+2024-07-13 09:51:49,015 - root - ------------------------------------------------------------------------
+
+2024-07-13 09:51:49,015 - root - Distances: ['manhattan', 'euclidean', 'chebyshev', 'cosine'] 
+2024-07-13 09:51:49,015 - root - Methods: ['FLANN', 'PYNN', 'GDASC']
+2024-07-13 09:51:49,015 - root - plotting: [5, 10, 15]
+2024-07-13 09:51:49,015 - root - GDASC params: tg=1000, nc=500, r=30, algorithm=kmedoids, implementation=fastkmedoids
+
+2024-07-13 09:51:49,015 - root - ------------  manhattan distance  --------------------
+
+2024-07-13 09:51:49,015 - root - -- FLANN method --
+
+2024-07-13 09:51:49,024 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_Exact.hdf5
+2024-07-13 09:51:49,034 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_FLANN.hdf5
+2024-07-13 09:51:49,035 - root - Correct neighbors rate: 121/500.0
+2024-07-13 09:51:49,035 - root - Hit percentage: 24.2%
+
+
+2024-07-13 09:51:49,045 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_Exact.hdf5
+2024-07-13 09:51:49,053 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_FLANN.hdf5
+2024-07-13 09:51:49,055 - root - Correct neighbors rate: 165/1000.0
+2024-07-13 09:51:49,055 - root - Hit percentage: 16.5%
+
+
+2024-07-13 09:51:49,063 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_Exact.hdf5
+2024-07-13 09:51:49,071 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_FLANN.hdf5
+2024-07-13 09:51:49,073 - root - Correct neighbors rate: 202/1500.0
+2024-07-13 09:51:49,073 - root - Hit percentage: 13.466666666666665%
+
+
+2024-07-13 09:51:49,073 - root - -- PYNN method --
+
+2024-07-13 09:51:49,078 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_Exact.hdf5
+2024-07-13 09:51:49,082 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_PYNN.hdf5
+2024-07-13 09:51:49,083 - root - Correct neighbors rate: 163/500.0
+2024-07-13 09:51:49,083 - root - Hit percentage: 32.6%
+
+
+2024-07-13 09:51:49,091 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_Exact.hdf5
+2024-07-13 09:51:49,096 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_PYNN.hdf5
+2024-07-13 09:51:49,097 - root - Correct neighbors rate: 301/1000.0
+2024-07-13 09:51:49,098 - root - Hit percentage: 30.099999999999998%
+
+
+2024-07-13 09:51:49,105 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_Exact.hdf5
+2024-07-13 09:51:49,110 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_PYNN.hdf5
+2024-07-13 09:51:49,111 - root - Correct neighbors rate: 434/1500.0
+2024-07-13 09:51:49,111 - root - Hit percentage: 28.933333333333334%
+
+
+2024-07-13 09:51:49,112 - root - -- GDASC method --
+
+2024-07-13 09:51:49,115 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_Exact.hdf5
+2024-07-13 09:51:49,120 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_manhattan_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,121 - root - Correct neighbors rate: 256/500.0
+2024-07-13 09:51:49,121 - root - Hit percentage: 51.2%
+
+
+2024-07-13 09:51:49,129 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_Exact.hdf5
+2024-07-13 09:51:49,134 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_manhattan_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,136 - root - Correct neighbors rate: 442/1000.0
+2024-07-13 09:51:49,136 - root - Hit percentage: 44.2%
+
+
+2024-07-13 09:51:49,140 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_Exact.hdf5
+2024-07-13 09:51:49,146 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_manhattan_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,148 - root - Correct neighbors rate: 594/1500.0
+2024-07-13 09:51:49,148 - root - Hit percentage: 39.6%
+
+
+2024-07-13 09:51:49,149 - root - ------------  euclidean distance  --------------------
+
+2024-07-13 09:51:49,149 - root - -- FLANN method --
+
+2024-07-13 09:51:49,152 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_Exact.hdf5
+2024-07-13 09:51:49,158 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_FLANN.hdf5
+2024-07-13 09:51:49,160 - root - Correct neighbors rate: 122/500.0
+2024-07-13 09:51:49,160 - root - Hit percentage: 24.4%
+
+
+2024-07-13 09:51:49,167 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_Exact.hdf5
+2024-07-13 09:51:49,173 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_FLANN.hdf5
+2024-07-13 09:51:49,174 - root - Correct neighbors rate: 212/1000.0
+2024-07-13 09:51:49,174 - root - Hit percentage: 21.2%
+
+
+2024-07-13 09:51:49,179 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_Exact.hdf5
+2024-07-13 09:51:49,185 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_FLANN.hdf5
+2024-07-13 09:51:49,186 - root - Correct neighbors rate: 239/1500.0
+2024-07-13 09:51:49,186 - root - Hit percentage: 15.933333333333334%
+
+
+2024-07-13 09:51:49,187 - root - -- PYNN method --
+
+2024-07-13 09:51:49,192 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_Exact.hdf5
+2024-07-13 09:51:49,196 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_PYNN.hdf5
+2024-07-13 09:51:49,197 - root - Correct neighbors rate: 159/500.0
+2024-07-13 09:51:49,197 - root - Hit percentage: 31.8%
+
+
+2024-07-13 09:51:49,202 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_Exact.hdf5
+2024-07-13 09:51:49,206 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_PYNN.hdf5
+2024-07-13 09:51:49,208 - root - Correct neighbors rate: 246/1000.0
+2024-07-13 09:51:49,208 - root - Hit percentage: 24.6%
+
+
+2024-07-13 09:51:49,213 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_Exact.hdf5
+2024-07-13 09:51:49,221 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_PYNN.hdf5
+2024-07-13 09:51:49,223 - root - Correct neighbors rate: 408/1500.0
+2024-07-13 09:51:49,223 - root - Hit percentage: 27.200000000000003%
+
+
+2024-07-13 09:51:49,224 - root - -- GDASC method --
+
+2024-07-13 09:51:49,228 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_Exact.hdf5
+2024-07-13 09:51:49,233 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_euclidean_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,235 - root - Correct neighbors rate: 253/500.0
+2024-07-13 09:51:49,235 - root - Hit percentage: 50.6%
+
+
+2024-07-13 09:51:49,243 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_Exact.hdf5
+2024-07-13 09:51:49,249 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_euclidean_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,252 - root - Correct neighbors rate: 436/1000.0
+2024-07-13 09:51:49,252 - root - Hit percentage: 43.6%
+
+
+2024-07-13 09:51:49,259 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_Exact.hdf5
+2024-07-13 09:51:49,265 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_euclidean_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,268 - root - Correct neighbors rate: 603/1500.0
+2024-07-13 09:51:49,268 - root - Hit percentage: 40.2%
+
+
+2024-07-13 09:51:49,269 - root - ------------  chebyshev distance  --------------------
+
+2024-07-13 09:51:49,269 - root - -- FLANN method --
+
+2024-07-13 09:51:49,270 - root - -- PYNN method --
+
+2024-07-13 09:51:49,274 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,279 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_chebyshev_PYNN.hdf5
+2024-07-13 09:51:49,280 - root - Correct neighbors rate: 203/500.0
+2024-07-13 09:51:49,280 - root - Hit percentage: 40.6%
+
+
+2024-07-13 09:51:49,287 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,293 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_chebyshev_PYNN.hdf5
+2024-07-13 09:51:49,294 - root - Correct neighbors rate: 413/1000.0
+2024-07-13 09:51:49,294 - root - Hit percentage: 41.3%
+
+
+2024-07-13 09:51:49,300 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,306 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_chebyshev_PYNN.hdf5
+2024-07-13 09:51:49,308 - root - Correct neighbors rate: 585/1500.0
+2024-07-13 09:51:49,308 - root - Hit percentage: 39.0%
+
+
+2024-07-13 09:51:49,309 - root - -- GDASC method --
+
+2024-07-13 09:51:49,313 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,318 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_chebyshev_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,319 - root - Correct neighbors rate: 410/500.0
+2024-07-13 09:51:49,319 - root - Hit percentage: 82.0%
+
+
+2024-07-13 09:51:49,325 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,332 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_chebyshev_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,334 - root - Correct neighbors rate: 785/1000.0
+2024-07-13 09:51:49,334 - root - Hit percentage: 78.5%
+
+
+2024-07-13 09:51:49,341 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_chebyshev_Exact.hdf5
+2024-07-13 09:51:49,347 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_chebyshev_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,348 - root - Correct neighbors rate: 1143/1500.0
+2024-07-13 09:51:49,348 - root - Hit percentage: 76.2%
+
+
+2024-07-13 09:51:49,349 - root - ------------  cosine distance  --------------------
+
+2024-07-13 09:51:49,349 - root - -- FLANN method --
+
+2024-07-13 09:51:49,350 - root - -- PYNN method --
+
+2024-07-13 09:51:49,354 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_cosine_Exact.hdf5
+2024-07-13 09:51:49,361 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_cosine_PYNN.hdf5
+2024-07-13 09:51:49,363 - root - Correct neighbors rate: 289/500.0
+2024-07-13 09:51:49,363 - root - Hit percentage: 57.8%
+
+
+2024-07-13 09:51:49,367 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_cosine_Exact.hdf5
+2024-07-13 09:51:49,371 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_cosine_PYNN.hdf5
+2024-07-13 09:51:49,373 - root - Correct neighbors rate: 674/1000.0
+2024-07-13 09:51:49,373 - root - Hit percentage: 67.4%
+
+
+2024-07-13 09:51:49,376 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_cosine_Exact.hdf5
+2024-07-13 09:51:49,381 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_cosine_PYNN.hdf5
+2024-07-13 09:51:49,382 - root - Correct neighbors rate: 1018/1500.0
+2024-07-13 09:51:49,382 - root - Hit percentage: 67.86666666666666%
+
+
+2024-07-13 09:51:49,382 - root - -- GDASC method --
+
+2024-07-13 09:51:49,386 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_cosine_Exact.hdf5
+2024-07-13 09:51:49,394 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_5_cosine_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,395 - root - Correct neighbors rate: 483/500.0
+2024-07-13 09:51:49,395 - root - Hit percentage: 96.6%
+
+
+2024-07-13 09:51:49,400 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_cosine_Exact.hdf5
+2024-07-13 09:51:49,405 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_10_cosine_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,407 - root - Correct neighbors rate: 990/1000.0
+2024-07-13 09:51:49,407 - root - Hit percentage: 99.0%
+
+
+2024-07-13 09:51:49,412 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_cosine_Exact.hdf5
+2024-07-13 09:51:49,419 - root - Loading neighbors from ./benchmarks/NearestNeighbors/NYtimes/knn_NYtimes_15_cosine_GDASC_tg1000_nc500_r30_kmedoids_fastkmedoids.hdf5
+2024-07-13 09:51:49,422 - root - Correct neighbors rate: 1488/1500.0
+2024-07-13 09:51:49,422 - root - Hit percentage: 99.2%
+
+
+2024-07-13 09:51:49,427 - root - mean Average Point (mAP):
+
+     Dataset   Distance Method     Recall
+0   NYtimes  chebyshev  FLANN        NaN
+1   NYtimes  chebyshev  GDASC  78.900000
+2   NYtimes  chebyshev   PYNN  40.300000
+3   NYtimes     cosine  FLANN        NaN
+4   NYtimes     cosine  GDASC  98.266667
+5   NYtimes     cosine   PYNN  64.355556
+6   NYtimes  euclidean  FLANN  20.511111
+7   NYtimes  euclidean  GDASC  44.800000
+8   NYtimes  euclidean   PYNN  27.866667
+9   NYtimes  manhattan  FLANN  18.055556
+10  NYtimes  manhattan  GDASC  45.000000
+11  NYtimes  manhattan   PYNN  30.544444
