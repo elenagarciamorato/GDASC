@@ -4,7 +4,7 @@ import benchmarks.plotting.benchmark_metrics as benchmark_metrics
 
 # Set var for benchmarks:
 #datasets = ['municipios', 'MNIST', 'NYtimes', 'GLOVE']
-datasets = ['NYtimes']
+datasets = ['GLOVE']
 distances = ['manhattan', 'euclidean', 'chebyshev', 'cosine']
 methods = ['FLANN', 'PYNN', 'GDASC']
 baseline = 'Exact'

@@ -23,6 +23,8 @@ def print_recall_graph(dataset, distances, methods, k, recalls):
 
 def print_recall_heatmap(datasets, distances, methods, k, recalls):
 
+    plt.rcParams['figure.dpi'] = 300
+
     for dataset in datasets:
         re_ma = np.asarray(recalls.loc[recalls['Distance'] == "manhattan", 'Recall'].tolist())
         re_eu = np.asarray(recalls.loc[recalls['Distance'] == "euclidean", 'Recall'].tolist())
@@ -172,9 +174,7 @@ def print_compare_recall_boxplots(recalls):
 # Build a barplot to show mean Average Point results for each dataset provided
 def print_mAP_barplot(datasets, distances, methods, mAP):
 
-    # Replace GDASC by GDASC
-    mAP = mAP.replace('GDASC', 'GDASC')
-    methods = list(map(lambda x: x.replace('GDASC', 'GDASC'),methods))
+    plt.rcParams['figure.dpi'] = 300
 
     for dataset in datasets:
 
@@ -203,9 +203,7 @@ def print_mAP_barplot(datasets, distances, methods, mAP):
 # Build a pointplot to show mean Average Point results for each dataset provided
 def print_mAP_pointplot(datasets, distances, methods, mAP):
 
-    # Replace GDASC by GDASC
-    mAP = mAP.replace('GDASC', 'GDASC')
-    methods = list(map(lambda x: x.replace('GDASC', 'GDASC'),methods))
+    plt.rcParams['figure.dpi'] = 300
 
     for dataset in datasets:
 
@@ -218,7 +216,13 @@ def print_mAP_pointplot(datasets, distances, methods, mAP):
         ax.set_ylabel('Recall (mAP)')
 
         # Show graph
+        plt.savefig("./benchmarks/figures/" + dataset + "_mAP.png")
         plt.show()
+
+        plt.figure().clear()
+        plt.close()
+        plt.cla()
+        plt.clf()
 
 
 #######################          Execution Time plots       ###########################
