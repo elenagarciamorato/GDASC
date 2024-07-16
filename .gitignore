@@ -3,7 +3,6 @@
 /benchmarks/algorithms/FLANN/Centroids/
 /benchmarks/algorithms/FLANN/index_
 /data/raw_data/
-/data/synthetic_data/
 /data/wdbc_train_test_set.hdf5
 /data/NYtaxis_train_test_set.hdf5
 /data/NYtimes_train_test_set.hdf5

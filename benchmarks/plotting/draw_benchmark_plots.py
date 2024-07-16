@@ -207,16 +207,23 @@ def print_mAP_pointplot(datasets, distances, methods, mAP):
 
     for dataset in datasets:
 
+        # Get the mAP for the dataset
+        dataset_mAP = mAP.loc[mAP['Dataset'] == dataset]
+
         # Point plot
-        ax = sns.pointplot(data=mAP, x="Distance", y="Recall", hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
+        ax = sns.pointplot(data=dataset_mAP, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
 
         # Set title and y-axis limits (0-100)
-        plt.suptitle(dataset, fontsize= 25,  ha='center')
+        if dataset == "municipios":
+            plt.suptitle("municipalities", fontsize=25, ha='center')
+        else:
+            plt.suptitle(dataset, fontsize=25, ha='center')
+
         #ax.set_ylim(0,100)
         ax.set_ylabel('Recall (mAP)')
 
         # Show graph
-        plt.savefig("./benchmarks/figures/" + dataset + "_mAP.png")
+        ##plt.savefig("./benchmarks/figures/" + dataset + "_mAP.png")
         plt.show()
 
         plt.figure().clear()
