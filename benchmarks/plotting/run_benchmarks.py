@@ -1,10 +1,10 @@
-from benchmarks.plotting.draw_benchmark_plots import print_mAP_pointplot
+from benchmarks.plotting.draw_benchmark_plots import print_mRecall_pointplot
 import benchmarks.plotting.benchmark_metrics as benchmark_metrics
 
 
 # Set var for benchmarks:
 datasets = ['municipios', 'MNIST', 'NYtimes', 'GLOVE']
-#datasets = ['municipios']
+#datasets = ['MNIST']
 distances = ['manhattan', 'euclidean', 'chebyshev', 'cosine']
 methods = ['FLANN', 'PYNN', 'GDASC']
 baseline = 'Exact'
@@ -29,11 +29,11 @@ if __name__ == '__main__':
     # print_compare_recall_boxplots(recalls)
     # print_recall_heatmap(datasets, distances, methods, knn, recalls)
 
-    # Obtain mean Average Point of all (k=5,10,15) experiments
-    mAP = benchmark_metrics.get_mAP(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
+    # Obtain mean Recall of all (k=5,10,15) experiments
+    mRecall = benchmark_metrics.get_mRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
 
-    # Print mAP graph
-    # print_mAP_barplot(datasets, distances, methods, mAP) #barplot
-    print_mAP_pointplot(datasets, distances, methods, mAP) #pointplot
+    # Print mRecall graph
+    # print_mRecall_barplot(datasets, distances, methods, mRecall) #barplot
+    print_mRecall_pointplot(datasets, distances, methods, mRecall) #pointplot
 
 exit(0)

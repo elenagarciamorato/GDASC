@@ -249,14 +249,13 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
             nc = 25
             r = 7500
 
-        print(tg)
         # Set logging info
         logging.basicConfig(filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + "GDASC" + "." + str(gmask_implementation) +'_recall.log',
-                            filemode='w', format='%(asctime)s - %(name)s - %(message)s', level=logging.INFO)
+                            filemode='w', format='%(asctime)s - %(name)s - %(message)s', level=logging.INFO, force=True)
         logging.info('------------------------------------------------------------------------')
-        logging.info('                       plotting over %s Dataset RECALL', da)
+        logging.info('                            %s Dataset RECALL', da)
         logging.info('------------------------------------------------------------------------')
-        logging.info('Search of k neighbors over a choosen dataset, using different methods, run_benchmarks.py')
+        logging.info('Search of k nearest neighbors over a choosen dataset, using different methods, run_benchmarks.py')
         logging.info('------------------------------------------------------------------------\n')
 
         logging.info('Distances: %s ', distances)
@@ -292,16 +291,17 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
                     recalls = pd.concat([recalls, pd.DataFrame([{'Dataset': da, 'k': k, 'Distance': di, 'Method': method, 'Recall': re}])], ignore_index=True)
                     #print(recalls)
 
+    logging.shutdown()
     return recalls
 
-def get_mAP(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
+def get_mRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
 
     # Once we have obtained the recall for each experiment (each k-dataset-distance-method combination)
     recalls = get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
 
     # Obtain mean Average Points for each dataset-distance-method combination
-    mAP = recalls.groupby(['Dataset', 'Distance', 'Method'])['Recall'].mean().reset_index()
-    logging.info("mean Average Point (mAP):\n\n " + str(mAP))
-    #print(mAP)
+    mRecall = recalls.groupby(['Dataset', 'Distance', 'Method'])['Recall'].mean().reset_index()
+    #print("mean Recall (mRecall):\n\n " + str(mRecall))
+    print(mRecall)
 
-    return mAP
+    return mRecall

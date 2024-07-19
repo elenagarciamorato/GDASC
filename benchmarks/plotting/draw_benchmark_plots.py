@@ -169,10 +169,10 @@ def print_compare_recall_boxplots(recalls):
 
 
 
-#######################          mAP plots       ###########################
+#######################          Recall plots       ###########################
 
-# Build a barplot to show mean Average Point results for each dataset provided
-def print_mAP_barplot(datasets, distances, methods, mAP):
+# Build a barplot to show mean Recall results for each dataset provided
+def print_mRecall_barplot(datasets, distances, methods, mRecall):
 
     plt.rcParams['figure.dpi'] = 300
 
@@ -183,7 +183,7 @@ def print_mAP_barplot(datasets, distances, methods, mAP):
         axes[0].set_ylabel('Recall', fontsize=30)
 
         for i in range(0, len(distances)):
-            distance_subset = mAP[mAP['Distance'] == distances[i]]
+            distance_subset = mRecall[mRecall['Distance'] == distances[i]]
             ax=sns.barplot(data=distance_subset, x="Method", y="Recall", ax=axes[i], order=methods, palette=['lightblue', 'orange', 'r'],)
 
             # Set title and x legend for each subplot
@@ -194,24 +194,24 @@ def print_mAP_barplot(datasets, distances, methods, mAP):
         # Set title and y legend for all subplots
         plt.suptitle(dataset, fontsize= 50,  ha='center')
         ax.set_ylim(0,100)
-        ax.set_ylabel('Recall (mAP)')
+        ax.set_ylabel('Recall (mean)')
 
         # Show graph
         plt.show()
 
 
-# Build a pointplot to show mean Average Point results for each dataset provided
-def print_mAP_pointplot(datasets, distances, methods, mAP):
+# Build a pointplot to show mean Recall results for each dataset provided
+def print_mRecall_pointplot(datasets, distances, methods, mRecall):
 
     plt.rcParams['figure.dpi'] = 300
 
     for dataset in datasets:
 
-        # Get the mAP for the dataset
-        dataset_mAP = mAP.loc[mAP['Dataset'] == dataset]
+        # Get the mRecall for the dataset
+        dataset_mRecall = mRecall.loc[mRecall['Dataset'] == dataset]
 
         # Point plot
-        ax = sns.pointplot(data=dataset_mAP, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
+        ax = sns.pointplot(data=dataset_mRecall, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
 
         # Set title and y-axis limits (0-100)
         if dataset == "municipios":
@@ -220,10 +220,10 @@ def print_mAP_pointplot(datasets, distances, methods, mAP):
             plt.suptitle(dataset, fontsize=25, ha='center')
 
         #ax.set_ylim(0,100)
-        ax.set_ylabel('Recall (mAP)')
+        ax.set_ylabel('Recall (mean)')
 
         # Show graph
-        ##plt.savefig("./benchmarks/figures/" + dataset + "_mAP.png")
+        plt.savefig("./benchmarks/figures/" + dataset + "_mRecall.png")
         plt.show()
 
         plt.figure().clear()
