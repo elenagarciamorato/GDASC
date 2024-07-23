@@ -1,4 +1,4 @@
-from benchmarks.plotting.draw_benchmark_plots import print_mRecall_pointplot
+from benchmarks.plotting.draw_benchmark_plots import print_avgRecall_pointplot
 import benchmarks.plotting.benchmark_metrics as benchmark_metrics
 
 
@@ -29,11 +29,11 @@ if __name__ == '__main__':
     # print_compare_recall_boxplots(recalls)
     # print_recall_heatmap(datasets, distances, methods, knn, recalls)
 
-    # Obtain mean Recall of all (k=5,10,15) experiments
-    mRecall = benchmark_metrics.get_mRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
+    # Obtain average Recall of all (k=5,10,15) experiments
+    avgRecall = benchmark_metrics.get_avgRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
 
-    # Print mRecall graph
-    # print_mRecall_barplot(datasets, distances, methods, mRecall) #barplot
-    print_mRecall_pointplot(datasets, distances, methods, mRecall) #pointplot
+    # Print avgRecall graph
+    # print_avgRecall_barplot(datasets, distances, methods, avgRecall) #barplot
+    print_avgRecall_pointplot(datasets, distances, methods, avgRecall) #pointplot
 
 exit(0)

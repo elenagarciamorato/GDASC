@@ -294,14 +294,14 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
     logging.shutdown()
     return recalls
 
-def get_mRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
+def get_avgRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
 
     # Once we have obtained the recall for each experiment (each k-dataset-distance-method combination)
     recalls = get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
 
     # Obtain mean Average Points for each dataset-distance-method combination
-    mRecall = recalls.groupby(['Dataset', 'Distance', 'Method'])['Recall'].mean().reset_index()
-    #print("mean Recall (mRecall):\n\n " + str(mRecall))
-    print(mRecall)
+    avgRecall = recalls.groupby(['Dataset', 'Distance', 'Method'])['Recall'].mean().reset_index()
+    #print("average Recall (avgRecall):\n\n " + str(avgRecall))
+    print(avgRecall)
 
-    return mRecall
+    return avgRecall

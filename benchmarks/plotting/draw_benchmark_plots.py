@@ -171,8 +171,8 @@ def print_compare_recall_boxplots(recalls):
 
 #######################          Recall plots       ###########################
 
-# Build a barplot to show mean Recall results for each dataset provided
-def print_mRecall_barplot(datasets, distances, methods, mRecall):
+# Build a barplot to show average Recall results for each dataset provided
+def print_avgRecall_barplot(datasets, distances, methods, avgRecall):
 
     plt.rcParams['figure.dpi'] = 300
 
@@ -183,7 +183,7 @@ def print_mRecall_barplot(datasets, distances, methods, mRecall):
         axes[0].set_ylabel('Recall', fontsize=30)
 
         for i in range(0, len(distances)):
-            distance_subset = mRecall[mRecall['Distance'] == distances[i]]
+            distance_subset = avgRecall[avgRecall['Distance'] == distances[i]]
             ax=sns.barplot(data=distance_subset, x="Method", y="Recall", ax=axes[i], order=methods, palette=['lightblue', 'orange', 'r'],)
 
             # Set title and x legend for each subplot
@@ -194,24 +194,24 @@ def print_mRecall_barplot(datasets, distances, methods, mRecall):
         # Set title and y legend for all subplots
         plt.suptitle(dataset, fontsize= 50,  ha='center')
         ax.set_ylim(0,100)
-        ax.set_ylabel('Recall (mean)')
+        ax.set_ylabel('Average Recall')
 
         # Show graph
         plt.show()
 
 
-# Build a pointplot to show mean Recall results for each dataset provided
-def print_mRecall_pointplot(datasets, distances, methods, mRecall):
+# Build a pointplot to show average Recall results for each dataset provided
+def print_avgRecall_pointplot(datasets, distances, methods, avgRecall):
 
     plt.rcParams['figure.dpi'] = 300
 
     for dataset in datasets:
 
-        # Get the mRecall for the dataset
-        dataset_mRecall = mRecall.loc[mRecall['Dataset'] == dataset]
+        # Get the avgRecall for the dataset
+        dataset_avgRecall = avgRecall.loc[avgRecall['Dataset'] == dataset]
 
         # Point plot
-        ax = sns.pointplot(data=dataset_mRecall, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
+        ax = sns.pointplot(data=dataset_avgRecall, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
 
         # Set title and y-axis limits (0-100)
         if dataset == "municipios":
@@ -219,11 +219,11 @@ def print_mRecall_pointplot(datasets, distances, methods, mRecall):
         else:
             plt.suptitle(dataset, fontsize=25, ha='center')
 
-        #ax.set_ylim(0,100)
-        ax.set_ylabel('Recall (mean)')
+        ax.set_ylim(0,105)
+        ax.set_ylabel('Average Recall')
 
         # Show graph
-        plt.savefig("./benchmarks/figures/" + dataset + "_mRecall.png")
+        plt.savefig("./benchmarks/figures/" + dataset + "_avgRecall.png")
         plt.show()
 
         plt.figure().clear()
