@@ -1,6 +1,6 @@
 # GDASC - General Distributed Approximate Similarity search with Clustering
 
-![GDASC](docs\Graghs\fig_multilayer_structure.png)
+![GDASC](benchmarks/figures/fig_multilayer_structure.png)
 
 <!-- 
 Finding elements from a dataset is the main task of similarity search which is typically achieved by representing the data as feature vectors in a multidimensional space, and then applying a specific similarity or dissimilarity metric to compare the query object to the elements in the dataset. Diverse data indexing techniques, collectively called access methods, have been proposed to expedite this process. In this context, two constraints are evident in the (existing) algorithms proposed regarding the issues inherent in representing datasets in high-dimensional spaces and the choice of indexing metric or method.-->
@@ -74,20 +74,20 @@ This project proposes a new algorithm GDASC that is a generalized algorithm to s
  
 ### Dataset 1:
 
-![municipalities](benchmarks/figures/municipios_mRecall.png)
+![municipalities](benchmarks/figures/municipios_avgRecall.png)
 
 <!-- ### Mask
 Mask (Multilevel Approximate Similarity search with k-means) (Ortega et al., 2023), a novel indexing method that involves an unconventional application of the 𝑘-means partitioning algorithm (MacQueen, 1967; Lloyd, 1982) to create a multilevel index structure for approximate similarity search. -->
 
 ### Dataset 2:
-![mnist](benchmarks/figures/MNIST_mRecall.png)
+![mnist](benchmarks/figures/MNIST_avgRecall.png)
 
 ### Dataset 3:
-![glove](benchmarks/figures/GLOVE_mRecall.png)
+![glove](benchmarks/figures/GLOVE_avgRecall.png)
 
 ### Dataset 4:
 
-![NYtimes](benchmarks/figures/NYtimes_mRecall.png)
+![NYtimes](benchmarks/figures/NYtimes_avgRecall.png)
 
 
 
