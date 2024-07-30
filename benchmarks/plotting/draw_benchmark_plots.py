@@ -203,27 +203,40 @@ def print_avgRecall_barplot(datasets, distances, methods, avgRecall):
 # Build a pointplot to show average Recall results for each dataset provided
 def print_avgRecall_pointplot(datasets, distances, methods, avgRecall):
 
+    # Set resolution of the figure
     plt.rcParams['figure.dpi'] = 300
 
+    # Replace PYNN denomination by PyNN
+    avgRecall = avgRecall.replace("PYNN", "PyNN")
+    methods = list(map(lambda x: x.replace("PYNN", "PyNN"), methods))
+
+    # Print one graph for each dataset
     for dataset in datasets:
 
         # Get the avgRecall for the dataset
         dataset_avgRecall = avgRecall.loc[avgRecall['Dataset'] == dataset]
 
         # Point plot
-        ax = sns.pointplot(data=dataset_avgRecall, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['lightblue', 'orange', 'r'])
-
+        # lineas gruesas y GDASC discontinuo
+        sns.set_context("paper", font_scale=1.3)
+        ax = sns.pointplot(data=dataset_avgRecall, x="Distance", y="Recall",hue="Method", hue_order= methods, order=distances, palette=['#58a5e0', '#fca92d', '#b970e0'], markersize=4.5, linestyles=["-", "-", "--"])
+        ax.margins(x=0.07)
+        sns.move_legend(ax, "lower right", )
+        plt.setp(ax.get_legend().get_title(), fontsize='16')
+        plt.setp(ax.get_legend().get_texts(), fontsize='13')
+        ''' Title
         # Set title and y-axis limits (0-100)
         if dataset == "municipios":
             plt.suptitle("municipalities", fontsize=25, ha='center')
         else:
             plt.suptitle(dataset, fontsize=25, ha='center')
+        '''
 
         ax.set_ylim(0,105)
         ax.set_ylabel('Average Recall')
 
-        # Show graph
-        plt.savefig("./benchmarks/figures/" + dataset + "_avgRecall.png")
+        # Show graph and save it into a file
+        plt.savefig("./benchmarks/figures/fig_" + dataset + "_avgRecall.png")
         plt.show()
 
         plt.figure().clear()
