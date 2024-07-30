@@ -52,15 +52,12 @@ This project proposes a new algorithm GDASC that is a generalized algorithm to s
   
     
 ## Datasets:
-| Dataset            | Label       | N         | Dimensionality | High Sparsity | Data Type  | Download                                           |
-|--------------------|-------------|-----------|----------------|---------------|------------|---------------------------------------------------|
-| **Municipalities** | X_muni      | 8,130     | 2              | No            | Geospatial | [Municipalities](https://doi.org/10.5281/zenodo.12759082) |
-| **MNIST**          | X_MNIST     | 69,000    | 784            | Yes           | Image      | [MNIST](https://doi.org/10.5281/zenodo.12759284)          |
-| **GLOVE**          | X_GLOVE     | 1,000,000 | 100            | No            | Text       | [GLOVE](https://doi.org/10.5281/zenodo.12759356)          |
-| **NYtimes**        | X_NYtimes   | 290,000   | 256            | No            | Text       | [NYtimes](https://doi.org/10.5281/zenodo.12760693)        |
-
-
-
+| Dataset                                                       | Label       | N         | Dimensionality | High Sparsity | Data Type  | 
+|---------------------------------------------------------------|-------------|-----------|----------------|---------------|------------|
+| [**Municipalities**](https://doi.org/10.5281/zenodo.12759082) | X_muni      | 8,130     | 2              | No            | Geospatial |
+| [**MNIST**](https://doi.org/10.5281/zenodo.12759284)          | X_MNIST     | 69,000    | 784            | Yes           | Image      |
+| [**GLOVE**](https://doi.org/10.5281/zenodo.12759356)          | X_GLOVE     | 1,000,000 | 100            | No            | Text       |
+| [**NYtimes**](https://doi.org/10.5281/zenodo.12760693)        | X_NYtimes   | 290,000   | 256            | No            | Text       |
 
 
 ## Benchmarks:
