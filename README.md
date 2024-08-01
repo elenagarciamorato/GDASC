@@ -18,11 +18,27 @@ This project proposes a new algorithm GDASC that is a generalized algorithm to s
 
 ## Installation:
 ## Summary of features
-* GDASC constructs a multilevel indexing structure, making it suitable for large, high-dimensional, and sparse datasets typically stored in distributed systems.<!-- This algorithm is adaptable with various clustering algorithms, including k-means, k-medoids, and DBSCAN..., and has already been successfully applied to k-medoids.-->
+<!-- * GDASC constructs a multilevel indexing structure, making it suitable for large, high-dimensional, and sparse datasets typically stored in distributed systems.<!-- This algorithm is adaptable with various clustering algorithms, including k-means, k-medoids, and DBSCAN..., and has already been successfully applied to k-medoids.
 * GDASC, is an adaptable algorithm  with various clustering algorithms, such as k-means and k-medoids. Notably, it has already been successfully applied with the k-medoids algorithm, demonstrating its versatility and effectiveness in diverse clustering scenarios.
 
 * GDASC uses k-medoids to enhance compatibility with any distance function, Unlike many similarity search algorithms that rely on k-means (usually associated with the Euclidean distance).
+-->
 
+
+__Multilevel Indexing Structure and k-Nearest Neighbors Search__
+
+
+The GDASC framework implements an advanced multilevel indexing structure that is particularly adept at managing large, high-dimensional, and sparse datasets, which are commonly found in distributed systems. This structure enables efficient similarity search by organizing data in a way that optimizes the retrieval of the nearest neighbors.
+
+
+__Versatile and Adaptable__
+
+
+GDASC distinguishes itself as a versatile and adaptable framework for data indexing, capable of integrating various clustering algorithms and distance functions. It employs the Multilevel Structure Algorithm (MSA) and the Neighbors Search Algorithm (NSA) to enhance its adaptability across diverse datasets and use cases.
+
+The MSA constructs the multilevel index by employing clustering algorithms that generate representative points summarizing the dataset, allowing GDASC to adapt to the specific characteristics of the data. 
+
+The NSA complements this by efficiently searching for neighbors within the indexed structure, utilizing the multilevel representation to quickly identify relevant data points. 
 
 ### Clustering Algorithms:
 
@@ -72,7 +88,7 @@ This project proposes a new algorithm GDASC that is a generalized algorithm to s
  
 ### Results
 For each dataset, a pointplot illustrates the recall of three different algorithms across various distance metrics (Manhattan, Euclidean, Chebyshev, Cosine) in approximate nearest neighbor search.
-
+<!-- 
 ### Dataset 1:
 
 ![municipalities](benchmarks/figures/municipios_avgRecall.png)
@@ -85,8 +101,8 @@ For each dataset, a pointplot illustrates the recall of three different algorith
 
 ### Dataset 4:
 
-![NYtimes](benchmarks/figures/NYtimes_avgRecall.png)
-
+![NYtimes](benchmarks/figures/NYtimes_avgRecall.png) -->
+[grafos4](benchmarks/figures/4grafos.png)
 
 
   

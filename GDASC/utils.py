@@ -3,293 +3,485 @@ import numpy as np
 from sklearn.metrics.pairwise import pairwise_distances
 import math as m
 
-def busca_dist_menor(m):
-    elem_min = m[0, 1:].min()
-    filas, columnas = m.shape
-    encontrado = False
-    colum = 1
-    while colum < columnas and not encontrado:
-        if elem_min == m[0, colum]:
-            encontrado = True
+
+def busca_dist_menor(distance_matrix):
+    """
+    Find the column index of the smallest element in the first row of a distance matrix, excluding the first element.
+
+    Parameters:
+    distance_matrix : numpy.ndarray
+      A 2D distance matrix where the first row contains distances to be evaluated.
+
+    Returns:
+    int: The column index of the smallest element in the first row, excluding the first element.
+    """
+    # Find the minimum element in the first row, excluding the first element
+    min_distance = distance_matrix[0, 1:].min()
+    num_rows, num_columns = distance_matrix.shape
+    found = False
+    column_index = 1
+    # Iterate through the columns to find the index of the minimum element
+    while num_columns < num_columns and not found:
+        if min_distance == distance_matrix[0, column_index]:
+            found = True
         else:
-            colum += 1
-    return colum
+            num_columns += 1
+    return column_index
 
 
-def argmin_diagonal_ignored(m):
-    mask = np.ones(m.shape, dtype=bool)
+def argmin_diagonal_ignored(matrix):
+    """
+    Find the indices of the minimum element in a 2D matrix, ignoring the diagonal elements.
+
+    Parameters:
+    matrix (numpy.ndarray): A 2D numpy array (matrix).
+
+    Returns:
+    tuple: A tuple (row_index, column_index) of the minimum element in the matrix, ignoring the diagonal.
+    """
+    # Create a mask to ignore the diagonal elements
+    mask = np.ones(matrix.shape, dtype=bool)
     np.fill_diagonal(mask, 0)
-    elem_min = m[mask].min()
+
+    # Find the minimum element in the matrix, ignoring the diagonal
+    min_element = matrix[mask].min()
     fila = 0
-    filas, columnas = m.shape
-    encontrado = False
-    while fila < filas and not encontrado:
-        columna = fila + 1
-        while columna < columnas and not encontrado:
-            if elem_min == m[fila, columna]:
-                encontrado = True
-            columna += 1
-        fila += 1
-    return fila - 1, columna - 1
+    num_rows, num_columns = matrix.shape
+    found = False
+
+    # Iterate through the matrix to find the indices of the minimum element
+    while row_index < num_rows and not found:
+        column_index = row_index + 1
+        while column_index < num_columns and not found:
+            if min_element == matrix[row_index, column_index]:
+                found = True
+            column_index += 1
+        row_index += 1
+    return row_index - 1, column_index - 1
 
 
-def obten_num_ptos(list_nptos, ncentroides):
-    num_ptos = 0
-    for elem in list_nptos:
-        if elem > ncentroides:
-            num_ptos+=ncentroides
+def obten_num_ptos(points_list, num_centroids):
+    """
+    Calculate the total number of points based on a list of points and the number of centroids.
+
+    This function sums the number of points in `points_list`, adding `ncentroides` if an element
+    exceeds `num_centroids`, otherwise adding the element itself.
+
+    Parameters:
+    points_list  : list of int
+           A list containing the number of points.
+    num_centroids : int
+           The number of centroids.
+
+    Returns:
+    int: The total number of points.
+    """
+    total_points = 0
+    for points in points_list:
+        if points > num_centroids:
+            total_points += num_centroids
         else:
-            num_ptos+=elem
-    return num_ptos
+            total_points += points
+    return total_points
 
-def divide_en_grupos(vector, longitud, ngrupos, tam):
-    # longitud, _ = vector.shape
-    if longitud == ngrupos*tam:
-        # La división es exacta:
-        vector = np.array(np.split(vector,ngrupos))
+
+def divide_en_grupos(array, length, num_groups, group_size):
+    """
+    Divide an  array into groups of a specified size.
+
+    Parameters:
+    array : numpy array
+        The array to be divided.
+    length : int
+        The length of the vector.
+    num_groups : int
+        The number of groups to divide the vector into.
+    group_size : int
+        The size of each group.
+
+    Returns:
+    numpy array: A 2D array where each sub-array represents a group.
+    """
+    # check if the division is exact
+    if length == length * group_size:
+        # Exact division
+        array = np.array(np.split(array, num_groups))
     else:
-        # La división no es exacta:
-        v1 = vector[:tam*(ngrupos-1)]
-        resto = vector[tam*(ngrupos-1):]
-        v1 = np.split(v1, ngrupos-1)
-        v1.append(resto)
-        vector = np.array(v1)
-        #vector = np.concatenate([v1, resto])
+        # Inexact division
+        main_groups = array[:group_size * (num_groups - 1)]
+        remainder = array[group_size * (num_groups - 1):]
+        main_groups = np.split(main_groups, num_groups - 1)
+        main_groups.append(remainder)
+        array = np.array(main_groups)
 
-    return vector
-
-def obten_idgrupo(id_punto, grupos):
-    ngrupos = len(grupos)
-    id_grupo = 0
-    inicio = 0
-    fin = grupos[0]
-    encontrado = False
-    while (id_grupo < ngrupos) and not(encontrado):
-        if id_punto>=inicio and id_punto<fin:
-            encontrado = True
-        else :
-            id_grupo += 1
-            inicio = fin
-            fin = fin+grupos[id_grupo]
-
-    return id_grupo
+    return array
 
 
-### OPERACIONES PARA LA REAGRUPACIÓN DE GRUPOS DESPUÉS DE LA 1º DECONSTRUCCIÓN ###
+def obten_idgrupo(point_id, group_sizes):
+    """
+    Determine the group ID to which a given point ID belongs.
 
-def myFunc(e):
-  return len(e)
+    Parameters:
+    point_id : int
+        The ID of the point to be checked.
+    group_sizes : list of int
+        A list where each element represents the size of a group.
 
-def busca_candidato(D, id_grupo):
-    '''filaini = D[id_grupo, 0:id_grupo]
-    filafin = D[id_grupo, (id_grupo+1):]
-    if len(filaini) == 0:
-        fila = filafin
-    elif len(filafin) == 0:
-        fila = filaini
+    Returns:
+    int: The group ID to which the given point belongs.
+    """
+    num_groups = len(group_sizes)  # Total number of groups
+    group_id = 0
+    group_start = 0  # Start index of the current group
+    group_end = group_sizes[0]  # End index of the current group
+    found = False  # Flag to indicate if the group is found
+    # Loop through the groups to find the one that contains the point ID
+    while (point_id < num_groups) and not (found):
+        if point_id >= group_start and point_id < group_end:
+            found = True  # The point is within the current group range
+        else:
+            group_id += 1  # Move to the next group
+            group_start = group_end  # Update the start index to the end of the current group
+            group_end = group_end + group_sizes[group_id]  # Update the end index to the new group's end
+
+    return group_id
+
+
+def myFunc(element):
+    return len(element)
+
+
+def busca_candidato(distance_matrix, group_index):
+    """
+    Find the index of the closest candidate in the distance matrix for a given group.
+
+    This function searches for the minimum distance value in a specific row of the distance matrix
+    `distance_matrix`, corresponding to the given group `group_id`. The row is sorted to find the smallest non-zero
+    distance, which is assumed to be the closest candidate.
+
+    Parameters:
+    distance_matrix       : numpy array
+        A 2D array where `distance_matrix[i, j]` represents the distance between the `i`-th and `j`-th points.
+    group_index : int
+        The index of the row in the distance matrix to search.
+
+    Returns:
+    int: The index of the closest candidate in the specified row.
+    """
+
+    # Convert the row of the distance matrix for the specified group to a list
+    row = distance_matrix[group_index, :].tolist()
+    # Sort the list to find the smallest value more easily
+    sorted_row = sorted(row)
+    # The minimum value excluding the first element (which is always zero or not relevant)
+    minimum_distance = sorted_row[1]
+
+    # Find the index of this minimum value in the original row
+    closest_index = row.index(minimum_distance)
+    return closest_index
+
+
+def hay_grupos_peq(groups, size_threshold):
+    """
+    return all(len(group) < tam_grupo for group in vector)
+    Check if all groups in a list of groups are smaller than a specified size.
+
+    Parameters:
+    groups : list of lists
+        A list where each element is a group (which is itself a list).
+    size_threshold : int
+        The size threshold to check against.
+
+    Returns:
+    bool: True if all groups in `vector` are smaller than `tam_grupo`, otherwise False.
+    """
+    all_smaller = False
+    count = 0
+    for group in groups:
+        if (len(group) < size_threshold):
+            count += 1
+
+    if count == len(groups):
+        all_smaller = True
+
+    return all_smaller
+
+
+def funcdist(point, points_vector, dimensions):
+    """
+    Calculate the Euclidean distance between a given point and each point in a vector.
+
+    Parameters:
+    point : list of list of floats
+        A 2D list representing a single point with dimensions.
+    points_vector : list of list of floats
+        A list of points where each point is a list of coordinates.
+    dimensions : int
+       The number of dimensions for each point.
+
+    Returns:
+    numpy.ndarray: A 1D array containing the Euclidean distances from the given point to each point in the vector.
+    """
+    distances = np.empty(len(points_vector), float)
+    for i in range(len(points_vector)):
+        sum_of_squares= 0.0
+        for n in range(dimensions):
+            coordinate_difference = (point[0][n] -points_vector[i][n]) * (point[0][n] - points_vector[i][n])
+            sum_of_squares += coordinate_difference
+        distances[i] = m.sqrt(sum_of_squares)
+    return distances
+
+
+def calculate_numcapas(total_points, group_size, num_centroids):
+    """
+    Calculate the number of layers (num_layers) required for a hierarchical clustering process.
+
+    Parameters:
+    total_points : int
+            The total number of points.
+    group_size : int
+            The size of each group.
+    num_centroids : int
+            The number of centroids per group.
+
+    Returns:
+    int: The number of layers (num_layers) required.
+    """
+    # If the total points are less than the group size or group size is equal to the number of centroids
+    if total_points < group_size or group_size == num_centroids:
+        num_layers = 1
     else:
-        fila = filaini + filafin
-    elem_min = fila.min()
-    fila = fila.tolist()
-    indice = fila.index(elem_min)'''
-    fila = D[id_grupo, : ].tolist()
-    filaOrd = sorted(fila)
-    minimo = filaOrd[1]
-    indice = fila.index(minimo)
-    return indice
+        # Initial calculation for the first layer
+        quotient = int(total_points / group_size)
+        rest = total_points % group_size
+        num_groups = quotient + rest
+        new_points = num_groups * num_centroids
+        num_groups = 1
+        # Iteratively calculate the number of layers until new_points is less than or equal to n_centroides
+        while new_points > num_centroids:
+            quotient = int(new_points / group_size)
+            rest = new_points % group_size
+            if rest == 0:
+                num_centroids = quotient
+                new_points = num_groups * num_centroids
+            elif rest < num_centroids:
+                new_points = (quotient * num_centroids) + rest
+                num_groups = quotient + 1
+            elif rest >= num_centroids:
+                num_groups = quotient + 1
+                new_points = num_groups * num_centroids
+            # Increase the number of layers if new_points is still greater than or equal to n_centroides
+            if new_points >= num_centroids:
+                num_layers += 1
 
-def hay_grupos_peq(vector, tam_grupo):
-    bandera = False
-    cont = 0
-    for elem in vector:
-        if (len(elem) < tam_grupo):
-            cont += 1
-
-    if cont == len(vector):
-        bandera = True
-
-    return bandera
-
-def funcdist(punto, vector, dim):
-    vecdist = np.empty(len(vector), float)
-    for i in range(len(vector)):
-        suma = 0.0
-        for n in range(dim):
-            difcoord = (punto[0][n]-vector[i][n])*(punto[0][n]-vector[i][n])
-            suma += difcoord
-        vecdist[i] = m.sqrt(suma)
-    return vecdist
+    return num_layers
 
 
-def calculate_numcapas(cant_ptos, tam_grupo, n_centroides):
-    if cant_ptos < tam_grupo or tam_grupo == n_centroides:
-        ncapas = 1
-    else:
-        cociente = int(cant_ptos / tam_grupo)
-        resto = cant_ptos % tam_grupo
-        grupos = cociente + resto
-        new_ptos = grupos * n_centroides
-        ncapas = 1
-        while new_ptos > n_centroides:
-            cociente = int(new_ptos / tam_grupo)
-            resto = new_ptos % tam_grupo
-            if resto == 0:
-                grupos = cociente
-                new_ptos = grupos * n_centroides
-            elif resto < n_centroides:
-                new_ptos = (cociente * n_centroides) + resto
-                grupos = cociente + 1
-            elif resto >= n_centroides:
-                grupos = cociente + 1
-                new_ptos = grupos * n_centroides
+def built_estructuras_capa(total_points, cant_ptos, num_centroids, num_layers, dimensions):
+    """
+    Construct hierarchical structures for multiple layers of data points and centroids.
 
-            if new_ptos >= n_centroides:
-                ncapas += 1
+    Parameters:
+    total_points : int
+        The total number of points.
+    cant_ptos : int
+        The size of each group.
+    num_centroids : int
+        The number of centroids per group.
+    num_layers : int
+        The number of layers.
+    dimensions : int
+        The dimensionality of the data points.
 
-    return ncapas
+    Returns:
+    tuple: A tuple containing three numpy arrays:
+        - points_per_layer: Array of data points for each layer.
+        - labels_per_layer: Array of labels for each layer.
+        - groups_per_layer: Array of group sizes for each layer.
+    """
+    labels_per_layer = np.empty(num_layers, object)
+    points_per_layer = np.empty(num_layers, object)
+    groups_per_layer = np.empty(num_layers, object)
 
+    # Calculate the initial number of groups and the remainder
+    num_groups = int(total_points / cant_ptos)
+    rest = total_points % cant_ptos
 
-def built_estructuras_capa(cant_ptos, tam_grupo, n_centroides, n_capas, dimensiones):
-    labels_capa = np.empty(n_capas, object)
-    puntos_capa = np.empty(n_capas, object)
-    grupos_capa = np.empty(n_capas, object)
+    for capa in range(num_layers):
 
-    # Numero de grupos de la capa 0
-    ngrupos = int(cant_ptos / tam_grupo)
-    resto = cant_ptos % tam_grupo
-
-    for capa in range(n_capas):
-
-        if resto != 0:
-            # resto = cant_ptos - (ngrupos * tam_grupo)
-            ngrupos = ngrupos + 1
-            labels_grupo = np.empty(ngrupos, object)
-            for num in range(ngrupos - 1):
-                labels_grupo[num] = np.zeros(tam_grupo, dtype=int)
-            labels_grupo[ngrupos - 1] = np.zeros(resto, dtype=int)
-            labels_capa[capa] = labels_grupo
-            if (resto >= n_centroides):
-                puntos_grupo = np.zeros((ngrupos, n_centroides, dimensiones), dtype=float)
-                resto_nuevo = (ngrupos * n_centroides) % tam_grupo
-                ngrupos_nuevo = int((ngrupos * n_centroides) / tam_grupo)
+        if rest != 0:
+            # If there is a remainder, increase the number of groups by one
+            num_groups = num_groups + 1
+            group_labels = np.empty(num_groups, object)
+            for num in range(num_groups - 1):
+                group_labels[num] = np.zeros(group_size, dtype=int)
+            group_labels[num_groups - 1] = np.zeros(rest, dtype=int)
+            labels_per_layer[capa] = group_labels
+            if (rest >= num_centroids):
+                group_points = np.zeros((num_groups, num_centroids, dimensions), dtype=float)
+                new_rest = (num_groups * num_centroids) % group_size
+                new_num_groups= int((num_groups * num_centroids) / group_size)
             else:
-                puntos_grupo = np.empty(ngrupos, object)
-                for num in range(ngrupos - 1):
-                    puntos_grupo[num] = np.zeros((ngrupos - 1, n_centroides, dimensiones))
-                puntos_grupo[ngrupos - 1] = np.zeros((1, resto, dimensiones))
-                resto_nuevo = ((ngrupos - 1) * n_centroides + resto) % tam_grupo
-                ngrupos_nuevo = int(((ngrupos - 1) * n_centroides + resto) / tam_grupo)
-            puntos_capa[capa] = puntos_grupo
-            grupos_capa[capa] = np.zeros(ngrupos, dtype=int)
+                group_points = np.empty(num_groups, object)
+                for num in range(num_groups - 1):
+                    group_points[num] = np.zeros((num_groups - 1, num_centroids, dimensions))
+                group_points[num_groups - 1] = np.zeros((1, rest, dimensions))
+                new_rest = (num_groups - 1) * num_centroids + rest) % group_size
+                new_num_groups = int(((num_groups - 1) * num_centroids + rest) / group_size)
+            points_per_layer[capa] = group_points
+            groups_per_layer[capa] = np.zeros(num_groups, dtype=int)
         else:
-            puntos_capa[capa] = np.zeros((ngrupos, n_centroides, dimensiones), dtype=float)
-            labels_capa[capa] = np.zeros((ngrupos, tam_grupo), dtype=int)
-            grupos_capa[capa] = np.zeros(ngrupos, dtype=int)
-            resto_nuevo = (ngrupos * n_centroides) % tam_grupo
-            ngrupos_nuevo = int((ngrupos * n_centroides) / tam_grupo)
+            points_per_layer[capa] = np.zeros((num_groups, num_centroids, dimensions), dtype=float)
+            labels_per_layer[capa] = np.zeros((num_groups, group_size), dtype=int)
+            groups_per_layer[capa] = np.zeros(num_groups, dtype=int)
+            new_rest = (num_groups * num_centroids) % group_size
+            new_num_groups = int((num_groups * num_centroids) / group_size)
+        # Update the remainder and number of groups for the next layer
+        rest = new_rest
+        num_groups= new_num_groups
 
-        resto = resto_nuevo
-        ngrupos = ngrupos_nuevo
-
-    return puntos_capa, labels_capa, grupos_capa
-
-def built_lista_pos(id_grupo, grupos_capa_compress, lista_pos):
-    desplaz = 0
-    for id in range(id_grupo):
-        desplaz += grupos_capa_compress[id]
-    result = lista_pos + desplaz
-    return result
+    return points_per_layer, labels_per_layer, groups_per_layer
 
 
-def search_near_centroid(id_grupo, id_centroide, id_ult_vecino, centroides_examinados, puntos_capa, labels_capa,
-                         grupos_capa, ids_vecinos, vector_original, metrica):
-    # 01/11: Para optimizar rendimiento, considerar cambio de pairwisedistances por cdist
+def built_lista_pos(group_id, compressed_group_sizes, position_list):
+    """
+    Calculate the position in a compressed group structure.
 
-    D = pairwise_distances(puntos_capa[0][id_grupo], metric=metrica)
-    # min1 = D[id_centroide, 0:id_centroide].min()
-    menor = np.partition(D[id_centroide], 1)[1]
-    new_id_centroide = (np.argwhere(D[id_centroide] == menor)).ravel()
+    This function computes the position in a compressed group structure by adding the
+    displacement of previous groups to the provided position.
 
-    if centroides_examinados[id_grupo][new_id_centroide] == 0:
-        lista_pos = np.argwhere(labels_capa[0][id_grupo][:] == new_id_centroide)
-        lista_pos = built_lista_pos(id_grupo, grupos_capa[0][:], lista_pos)
-        lista_pos = lista_pos.ravel()
+    Parameters:
+    group_id : int
+        The index of the group for which the position is being calculated.
+    compressed_group_sizes : list of int
+        A list containing the sizes of each group in the compressed structure.
+    position_list : int
+        The position within the current group.
 
-        new_lista_pos = np.setdiff1d(lista_pos, ids_vecinos)
-        if len(new_lista_pos) >= 1:
-            puntos_seleccionados = np.array(vector_original[new_lista_pos])
-            vecino_guardado = (np.array(vector_original[id_ult_vecino])).reshape(1, 2)
-            puntos_dist = np.concatenate([vecino_guardado, puntos_seleccionados])
-            D = pairwise_distances(puntos_dist, metric=metrica)
-            new_colum = busca_dist_menor(D)
-            id_punto = new_lista_pos[new_colum - 1]
-            dist = D[0, new_colum]
+    Returns:
+    int: The computed position in the overall compressed group structure.
+    """
+    displacement = 0
+    # Calculate the total displacement by summing the sizes of all groups before the current group
+    for id in range(group_id):
+        displacement += compressed_group_sizes[id]
+    # Add the displacement to the provided position
+    absolute_position = position_list + displacement
+    return absolute_position
 
-            if len(new_lista_pos) == 1:
-                # No hay más puntos asociados con ese centroide, por lo que lo marcamos (ponemos su posición
-                # a 1) como ya examinado
-                centroides_examinados[id_grupo][new_id_centroide] = 1
+
+def search_near_centroid(group_id, centroid_id, last_neighbor_id, examined_centroids, points_per_layer , labels_per_layer,
+                         groups_per_layer, neighbor_ids, original_points, metric):
+    """
+    Search for the nearest point to a centroid within a group and update examination status.
+
+    This function finds the nearest point to a specified centroid within a group, considering points
+    that have not been previously examined. It updates the status of centroids and points as necessary.
+
+    Parameters:
+    group_id : int
+        The index of the group being examined.
+    centroid_id : int
+        The index of the centroid within the group.
+    last_neighbor_id : int
+        The index of the last neighbor point considered.
+    examined_centroids : np.ndarray
+        A 2D array indicating whether centroids have been examined (1) or not (0).
+    points_per_layer : np.ndarray
+        A 2D array containing points in the current layer.
+    labels_per_layer: np.ndarray
+        A 2D array containing labels for points in the current layer.
+    groups_per_layer : np.ndarray
+        A 2D array containing the sizes of groups in the current layer.
+    neighbor_ids : np.ndarray
+        An array of indices of neighbor points already considered.
+    original_points : np.ndarray
+        The original set of points.
+    metric: str
+        The metric to use for distance calculation.
+
+    Returns:
+    tuple: A tuple containing the index of the nearest point, the distance to the nearest point,
+           the group index, and the updated centroid index.
+    """
+    distances = pairwise_distances(points_per_layer[0][group_id], metric=metric)
+    second_smallest_distance = np.partition(distances[centroid_id], 1)[1]
+    nearest_centroid_id = (np.argwhere(distances[centroid_id] == second_smallest_distance)).ravel()
+    # Check if the nearest centroid has been examined
+    if examined_centroids[group_id][nearest_centroid_id] == 0:
+        position_list = np.argwhere(labels_per_layer[0][group_id][:] == nearest_centroid_id)
+        position_list= built_lista_pos(group_id, groups_per_layer[0][:], lista_pos)
+        position_list= position_list.ravel()
+
+        new_position_list = np.setdiff1d(position_list, neighbor_ids)
+        if len(new_position_list) >= 1:
+            selected_points = np.array(original_points[new_position_list])
+            saved_neighbor = (np.array(original_points[last_neighbor_id])).reshape(1, 2)
+            distance_points = np.concatenate([saved_neighbor, selected_points])
+            distances = pairwise_distances(distance_points, metric=metric)
+            closest_column = busca_dist_menor(distances)
+            point_id = new_position_list[closest_column - 1]
+            distance = distances[0, closest_column]
+
+            if len(new_position_list) == 1:
+
+                examined_centroids[group_id][nearest_centroid_id] = 1
         else:
-            # Este centroide no nos vale, necesitamos otro:
-            siguiente = 2
-            salir = False
-            while (centroides_examinados[id_grupo][new_id_centroide] == 1) and (siguiente < len(D[id_centroide]))\
-                    and (not salir):
-                menor = np.partition(D[id_centroide], siguiente)[siguiente]
-                new_id_centroide = (np.argwhere(D[id_centroide] == menor)).ravel()
 
-                lista_pos = np.argwhere(labels_capa[0][id_grupo][:] == new_id_centroide)
-                lista_pos = built_lista_pos(id_grupo, grupos_capa[0][:], lista_pos)
-                lista_pos = lista_pos.ravel()
+            next_best = 2
+            exit_loop = False
+            while (examined_centroids[group_id][nearest_centroid_id] == 1) and (next_best < len(distances[id_centroide])) \
+                    and (not exit_loop):
+                second_smallest_distance = np.partition(distances[centroid_id], next_best)[next_best]
+                nearest_centroid_id = (np.argwhere(distances[centroid_id] == second_smallest_distance)).ravel()
 
-                new_lista_pos = np.setdiff1d(lista_pos, ids_vecinos)
-                if len(new_lista_pos) >= 1:
-                    puntos_seleccionados = np.array(vector_original[new_lista_pos])
-                    vecino_guardado = (np.array(vector_original[id_ult_vecino])).reshape(1, 2)
-                    puntos_dist = np.concatenate([vecino_guardado, puntos_seleccionados])
-                    D = pairwise_distances(puntos_dist, metric=metrica)
-                    new_colum = busca_dist_menor(D)
-                    id_punto = new_lista_pos[new_colum - 1]
-                    dist = D[0, new_colum]
-                    salir = True
-                    if len(new_lista_pos) == 1:
-                        # No hay más puntos asociados con ese centroide, por lo que lo marcamos (ponemos su posición
-                        # a 1) como ya examinado
-                        centroides_examinados[id_grupo][new_id_centroide] = 1
+                position_list = np.argwhere(labels_per_layer[0][group_id][:] == nearest_centroid_id)
+                position_list = built_lista_pos(group_id, groups_per_layer[0][:], position_list)
+                position_list = position_list.ravel()
+
+                new_position_list = np.setdiff1d(position_list, neighbor_ids)
+                if len(new_position_list) >= 1:
+                    selected_points = np.array(original_points[new_position_list])
+                    saved_neighbor = (np.array(original_points[last_neighbor_id])).reshape(1, 2)
+                    distance_points = np.concatenate([saved_neighbor, selected_points])
+                    distances= pairwise_distances(distance_points, metric=metric)
+                    closest_column = busca_dist_menor(distances)
+                    point_id = new_position_list[closest_column - 1]
+                    distance = distances[0, closest_column]
+                    exit_loop = True
+                    if len(new_position_list) == 1:
+
+                        examined_centroids[group_id][nearest_centroid_id] = 1
                 else:
-                    siguiente += 1
+                    next_best += 1
 
     else:
         # Si el centroide ha sido examinado, tengo que buscar el siguiente más cercano
-        siguiente = 2
-        maximo = len(D[id_centroide])
-        salir = False
-        while (centroides_examinados[id_grupo][new_id_centroide] == 1) and (siguiente < maximo) \
-                and (not salir):
-            menor = np.partition(D[id_centroide], siguiente)[siguiente]
-            new_id_centroide = (np.argwhere(D[id_centroide] == menor)).ravel()
+        next_best  = 2
+        max_length = len(distances[centroid_id])
+        exit_loop = False
+        while (examined_centroidss[group_id][nearest_centroid_id] == 1) and (next_best < max_length) \
+                and (not exit_loop):
+            second_smallest_distance = np.partition(distances[centroid_id], next_best)[next_best]
+            nearest_centroid_id = (np.argwhere(distances[centroid_id] == second_smallest_distance)).ravel()
 
-            lista_pos = np.argwhere(labels_capa[0][id_grupo][:] == new_id_centroide)
-            lista_pos = built_lista_pos(id_grupo, grupos_capa[0][:], lista_pos)
-            lista_pos = lista_pos.ravel()
+            position_list = np.argwhere(labels_per_layer[0][group_id][:] == nearest_centroid_id)
+            position_list = built_lista_pos(group_id, groups_per_layer[0][:], position_list)
+            position_list = position_list.ravel()
 
-            new_lista_pos = np.setdiff1d(lista_pos, ids_vecinos)
-            if len(new_lista_pos) >= 1:
-                puntos_seleccionados = np.array(vector_original[new_lista_pos])
-                vecino_guardado = (np.array(vector_original[id_ult_vecino])).reshape(1, 2)
-                puntos_dist = np.concatenate([vecino_guardado, puntos_seleccionados])
-                D = pairwise_distances(puntos_dist, metric=metrica)
-                new_colum = busca_dist_menor(D)
-                id_punto = new_lista_pos[new_colum - 1]
-                dist = D[0, new_colum]
-                salir = True
-                if len(new_lista_pos) == 1:
-                    # No hay más puntos asociados con ese centroide, por lo que lo marcamos (ponemos su posición
-                    # a 1) como ya examinado
-                    centroides_examinados[id_grupo][new_id_centroide] = 1
+            new_position_list = np.setdiff1d(position_list, ids_vecinos)
+            if len(new_position_list) >= 1:
+                selected_points = np.array(original_points[new_position_list])
+                saved_neighbor = (np.array(original_points[last_neighbor_id])).reshape(1, 2)
+                distance_points = np.concatenate([saved_neighbor, selected_points])
+                distances = pairwise_distances(distance_points, metric=metric)
+                closest_column = busca_dist_menor(distances)
+                point_id = new_position_list[closest_column - 1]
+                distance= distances[0, closest_column]
+                exit_loop = True
+                if len(new_position_list) == 1:
+                    examined_centroids[group_id][nearest_centroid_id] = 1
             else:
-                siguiente += 1
+                next_best += 1
 
-
-    return id_punto, dist, id_grupo, new_id_centroide
-
+    return point_id, distance, group_id, nearest_centroid_id
