@@ -47,11 +47,13 @@ def save_neighbors(indices, coords, dists, file_name):
 
     # Store the 3 different matrix on a hdf5 file
     with h5py.File(file_name, 'w') as f:
+        f.flush()
         dset1 = f.create_dataset('indices', data=indices)
         dset2 = f.create_dataset('coords', data=coords)
         dset3 = f.create_dataset('dists', data=dists)
         print("Neighbors stored at " + file_name)
         logging.info("Neighbors stored at " + file_name)
+        f.close()
 
 
 # Load neighbors (indices, coords and dist) from a hdf5 file
