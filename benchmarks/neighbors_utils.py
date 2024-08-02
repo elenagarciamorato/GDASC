@@ -107,6 +107,13 @@ def read_config_file(config_file):
     dataset = re.split('_|\.', config_file)[2]
     configfile_path = "./benchmarks/config/" + dataset + "/" + config_file
 
+    # Verify that config file provided as an argument exists
+    if not os.path.exists(configfile_path):
+        print(f"[ERROR] Config file {configfile_path} doesn't exist. Please check it and try again.")
+        exit(2)
+        #raise FileNotFoundError
+
+    # If it does, launch the experiment
     print("--- Reading " + config_file + " ---")
 
     # Open the configuration file

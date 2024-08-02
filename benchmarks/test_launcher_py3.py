@@ -34,10 +34,4 @@ if __name__ == "__main__":
     parser.add_argument("config_file", help="Config file | .ini", type=str)
     args = parser.parse_args()
 
-    # Verify that config file provided as an argument exists
-    if not os.path.exists(args.path):
-        print(f"[ERROR] Config file {args.path} doesn't exist")
-        raise FileNotFoundError
-
-    # If it does, launch the experiment
     main(args)
