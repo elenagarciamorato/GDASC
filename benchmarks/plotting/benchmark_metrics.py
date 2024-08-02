@@ -139,7 +139,7 @@ def compare(dataset_name, d, method1, method2, knn, file_name1=None, file_name2=
     return ip
 
 
-def get_error_rate(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
+def get_error_rate(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline):
 
     for da in datasets:
 
@@ -171,7 +171,7 @@ def get_error_rate(datasets, distances, methods, knn, gmask_algorithm, gmask_imp
 
         # Set logging info
         logging.basicConfig(
-            filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + str(gmask_algorithm) + "" + str(gmask_implementation) + '_errorrate.log',
+            filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + str(gdasc_algorithm) + "" + str(gdasc_implementation) + '_errorrate.log',
             filemode='w', format='%(asctime)s - %(name)s - %(message)s', level=logging.INFO)
         logging.info('------------------------------------------------------------------------')
         logging.info('                       plotting over %s Dataset ERROR RATE', da)
@@ -182,7 +182,7 @@ def get_error_rate(datasets, distances, methods, knn, gmask_algorithm, gmask_imp
         logging.info('Distances: %s ', distances)
         logging.info('Methods: %s', methods)
         logging.info('plotting: %s', knn)
-        logging.info('GDASC params: tg=%s, nc=%s, r=%s, algorithm=%s, implementation=%s\n', tg, nc, r, gmask_algorithm, gmask_implementation)
+        logging.info('GDASC params: tg=%s, nc=%s, r=%s, algorithm=%s, implementation=%s\n', tg, nc, r, gdasc_algorithm, gdasc_implementation)
 
         # From a chosen dataset, calculate recalls, store them and print graph
         da_error_rate = []
@@ -203,7 +203,7 @@ def get_error_rate(datasets, distances, methods, knn, gmask_algorithm, gmask_imp
                     if method == 'GDASC':
                         file_name = "./benchmarks/NearestNeighbors/" + da + "/knn_" + da + "_" + str(
                             k) + "_" + di + "_" + method + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(
-                            r) + "_" + str(gmask_algorithm) + "_" + str(gmask_implementation) + ".hdf5"
+                            r) + "_" + str(gdasc_algorithm) + "_" + str(gdasc_implementation) + ".hdf5"
 
                     else:
                         file_name = "./benchmarks/NearestNeighbors/" + da + "/knn_" + da + "_" + str(k) + "_" + di + "_" + method + ".hdf5"
@@ -217,7 +217,7 @@ def get_error_rate(datasets, distances, methods, knn, gmask_algorithm, gmask_imp
 
     return da_error_rate
 
-def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
+def get_recall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline):
 
     recalls = pd.DataFrame(columns=['Dataset', 'k', 'Distance', 'Method', 'Recall'])
 
@@ -250,7 +250,7 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
             r = 7500
 
         # Set logging info
-        logging.basicConfig(filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + "GDASC" + "." + str(gmask_implementation) +'_recall.log',
+        logging.basicConfig(filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + "GDASC" + "." + str(gdasc_implementation) +'_recall.log',
                             filemode='w', format='%(asctime)s - %(name)s - %(message)s', level=logging.INFO, force=True)
         logging.info('------------------------------------------------------------------------')
         logging.info('                            %s Dataset RECALL', da)
@@ -261,7 +261,7 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
         logging.info('Distances: %s ', distances)
         logging.info('Methods: %s', methods)
         logging.info('plotting: %s', knn)
-        logging.info('GDASC params: tg=%s, nc=%s, r=%s, algorithm=%s, implementation=%s\n', tg, nc, r, gmask_algorithm, gmask_implementation)
+        logging.info('GDASC params: tg=%s, nc=%s, r=%s, algorithm=%s, implementation=%s\n', tg, nc, r, gdasc_algorithm, gdasc_implementation)
 
         # From a chosen dataset, calculate recall for each benchmarks  (k-dataset-distance-method combination)
         for di in distances:
@@ -277,7 +277,7 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
 
                     if method == 'GDASC':
                         file_name = "./benchmarks/NearestNeighbors/" + da + "/knn_" + da + "_" + str(
-                            k) + "_" + di + "_" + method + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + str(gmask_algorithm) + "_" + str(gmask_implementation) + ".hdf5"
+                            k) + "_" + di + "_" + method + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + str(gdasc_algorithm) + "_" + str(gdasc_implementation) + ".hdf5"
                     else:
                         file_name = "./benchmarks/NearestNeighbors/" + da + "/knn_" + da + "_" + str(
                             k) + "_" + di + "_" + method + ".hdf5"
@@ -294,10 +294,10 @@ def get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_impleme
     logging.shutdown()
     return recalls
 
-def get_avgRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline):
+def get_avgRecall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline):
 
     # Once we have obtained the recall for each experiment (each k-dataset-distance-method combination)
-    recalls = get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
+    recalls = get_recall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline)
 
     # Obtain mean Average Points for each dataset-distance-method combination
     avgRecall = recalls.groupby(['Dataset', 'Distance', 'Method'])['Recall'].mean().reset_index()

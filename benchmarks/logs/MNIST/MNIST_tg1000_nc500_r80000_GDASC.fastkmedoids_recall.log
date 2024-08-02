@@ -1,223 +1,223 @@
-2024-07-23 12:06:37,933 - root - ------------------------------------------------------------------------
-2024-07-23 12:06:37,933 - root -                             MNIST Dataset RECALL
-2024-07-23 12:06:37,933 - root - ------------------------------------------------------------------------
-2024-07-23 12:06:37,933 - root - Search of k nearest neighbors over a choosen dataset, using different methods, run_benchmarks.py
-2024-07-23 12:06:37,933 - root - ------------------------------------------------------------------------
+2024-08-02 15:14:23,434 - root - ------------------------------------------------------------------------
+2024-08-02 15:14:23,434 - root -                             MNIST Dataset RECALL
+2024-08-02 15:14:23,434 - root - ------------------------------------------------------------------------
+2024-08-02 15:14:23,434 - root - Search of k nearest neighbors over a choosen dataset, using different methods, run_benchmarks.py
+2024-08-02 15:14:23,434 - root - ------------------------------------------------------------------------
 
-2024-07-23 12:06:37,933 - root - Distances: ['manhattan', 'euclidean', 'chebyshev', 'cosine'] 
-2024-07-23 12:06:37,933 - root - Methods: ['FLANN', 'PYNN', 'GDASC']
-2024-07-23 12:06:37,933 - root - plotting: [5, 10, 15]
-2024-07-23 12:06:37,933 - root - GDASC params: tg=1000, nc=500, r=80000, algorithm=kmedoids, implementation=fastkmedoids
+2024-08-02 15:14:23,434 - root - Distances: ['manhattan', 'euclidean', 'chebyshev', 'cosine'] 
+2024-08-02 15:14:23,434 - root - Methods: ['FLANN', 'PYNN', 'GDASC']
+2024-08-02 15:14:23,434 - root - plotting: [5, 10, 15]
+2024-08-02 15:14:23,434 - root - GDASC params: tg=1000, nc=500, r=80000, algorithm=kmedoids, implementation=fastkmedoids
 
-2024-07-23 12:06:37,934 - root - ------------  manhattan distance  --------------------
+2024-08-02 15:14:23,434 - root - ------------  manhattan distance  --------------------
 
-2024-07-23 12:06:37,934 - root - -- FLANN method --
+2024-08-02 15:14:23,435 - root - -- FLANN method --
 
-2024-07-23 12:06:37,934 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
-2024-07-23 12:06:37,935 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_FLANN.hdf5
-2024-07-23 12:06:37,936 - root - Correct neighbors rate: 251/500.0
-2024-07-23 12:06:37,936 - root - Hit percentage: 50.2%
+2024-08-02 15:14:23,457 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
+2024-08-02 15:14:23,476 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_FLANN.hdf5
+2024-08-02 15:14:23,479 - root - Correct neighbors rate: 251/500.0
+2024-08-02 15:14:23,479 - root - Hit percentage: 50.2%
 
 
-2024-07-23 12:06:37,937 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
-2024-07-23 12:06:37,939 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_FLANN.hdf5
-2024-07-23 12:06:37,941 - root - Correct neighbors rate: 421/1000.0
-2024-07-23 12:06:37,941 - root - Hit percentage: 42.1%
+2024-08-02 15:14:23,511 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
+2024-08-02 15:14:23,553 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_FLANN.hdf5
+2024-08-02 15:14:23,559 - root - Correct neighbors rate: 421/1000.0
+2024-08-02 15:14:23,559 - root - Hit percentage: 42.1%
 
 
-2024-07-23 12:06:37,941 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
-2024-07-23 12:06:37,944 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_FLANN.hdf5
-2024-07-23 12:06:37,946 - root - Correct neighbors rate: 628/1500.0
-2024-07-23 12:06:37,946 - root - Hit percentage: 41.86666666666667%
+2024-08-02 15:14:23,591 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
+2024-08-02 15:14:23,621 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_FLANN.hdf5
+2024-08-02 15:14:23,626 - root - Correct neighbors rate: 628/1500.0
+2024-08-02 15:14:23,626 - root - Hit percentage: 41.86666666666667%
 
 
-2024-07-23 12:06:37,946 - root - -- PYNN method --
+2024-08-02 15:14:23,627 - root - -- PYNN method --
 
-2024-07-23 12:06:37,946 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
-2024-07-23 12:06:37,948 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_PYNN.hdf5
-2024-07-23 12:06:37,949 - root - Correct neighbors rate: 485/500.0
-2024-07-23 12:06:37,949 - root - Hit percentage: 97.0%
+2024-08-02 15:14:23,628 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
+2024-08-02 15:14:23,647 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_PYNN.hdf5
+2024-08-02 15:14:23,650 - root - Correct neighbors rate: 485/500.0
+2024-08-02 15:14:23,650 - root - Hit percentage: 97.0%
 
 
-2024-07-23 12:06:37,950 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
-2024-07-23 12:06:37,951 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_PYNN.hdf5
-2024-07-23 12:06:37,953 - root - Correct neighbors rate: 990/1000.0
-2024-07-23 12:06:37,953 - root - Hit percentage: 99.0%
+2024-08-02 15:14:23,651 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
+2024-08-02 15:14:23,685 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_PYNN.hdf5
+2024-08-02 15:14:23,689 - root - Correct neighbors rate: 990/1000.0
+2024-08-02 15:14:23,689 - root - Hit percentage: 99.0%
 
 
-2024-07-23 12:06:37,954 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
-2024-07-23 12:06:37,955 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_PYNN.hdf5
-2024-07-23 12:06:37,957 - root - Correct neighbors rate: 1484/1500.0
-2024-07-23 12:06:37,957 - root - Hit percentage: 98.93333333333332%
+2024-08-02 15:14:23,691 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
+2024-08-02 15:14:23,724 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_PYNN.hdf5
+2024-08-02 15:14:23,728 - root - Correct neighbors rate: 1484/1500.0
+2024-08-02 15:14:23,728 - root - Hit percentage: 98.93333333333332%
 
 
-2024-07-23 12:06:37,957 - root - -- GDASC method --
+2024-08-02 15:14:23,729 - root - -- GDASC method --
 
-2024-07-23 12:06:37,957 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
-2024-07-23 12:06:37,958 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:37,960 - root - Correct neighbors rate: 500/500.0
-2024-07-23 12:06:37,960 - root - Hit percentage: 100.0%
+2024-08-02 15:14:23,729 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_Exact.hdf5
+2024-08-02 15:14:23,745 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:23,748 - root - Correct neighbors rate: 500/500.0
+2024-08-02 15:14:23,748 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:37,960 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
-2024-07-23 12:06:37,962 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:37,964 - root - Correct neighbors rate: 999/1000.0
-2024-07-23 12:06:37,964 - root - Hit percentage: 99.9%
+2024-08-02 15:14:23,750 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_Exact.hdf5
+2024-08-02 15:14:23,782 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:23,786 - root - Correct neighbors rate: 999/1000.0
+2024-08-02 15:14:23,786 - root - Hit percentage: 99.9%
 
 
-2024-07-23 12:06:37,965 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
-2024-07-23 12:06:37,966 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:37,968 - root - Correct neighbors rate: 1499/1500.0
-2024-07-23 12:06:37,968 - root - Hit percentage: 99.93333333333332%
+2024-08-02 15:14:23,788 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_Exact.hdf5
+2024-08-02 15:14:23,791 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_manhattan_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:23,795 - root - Correct neighbors rate: 1499/1500.0
+2024-08-02 15:14:23,795 - root - Hit percentage: 99.93333333333332%
 
 
-2024-07-23 12:06:37,968 - root - ------------  euclidean distance  --------------------
+2024-08-02 15:14:23,796 - root - ------------  euclidean distance  --------------------
 
-2024-07-23 12:06:37,968 - root - -- FLANN method --
+2024-08-02 15:14:23,796 - root - -- FLANN method --
 
-2024-07-23 12:06:37,968 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
-2024-07-23 12:06:37,969 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_FLANN.hdf5
-2024-07-23 12:06:37,970 - root - Correct neighbors rate: 307/500.0
-2024-07-23 12:06:37,970 - root - Hit percentage: 61.4%
+2024-08-02 15:14:23,816 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
+2024-08-02 15:14:23,830 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_FLANN.hdf5
+2024-08-02 15:14:23,834 - root - Correct neighbors rate: 307/500.0
+2024-08-02 15:14:23,834 - root - Hit percentage: 61.4%
 
 
-2024-07-23 12:06:37,971 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
-2024-07-23 12:06:37,973 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_FLANN.hdf5
-2024-07-23 12:06:37,974 - root - Correct neighbors rate: 565/1000.0
-2024-07-23 12:06:37,974 - root - Hit percentage: 56.49999999999999%
+2024-08-02 15:14:23,862 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
+2024-08-02 15:14:23,889 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_FLANN.hdf5
+2024-08-02 15:14:23,893 - root - Correct neighbors rate: 565/1000.0
+2024-08-02 15:14:23,893 - root - Hit percentage: 56.49999999999999%
 
 
-2024-07-23 12:06:37,975 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
-2024-07-23 12:06:37,976 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_FLANN.hdf5
-2024-07-23 12:06:37,978 - root - Correct neighbors rate: 703/1500.0
-2024-07-23 12:06:37,978 - root - Hit percentage: 46.86666666666667%
+2024-08-02 15:14:23,924 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
+2024-08-02 15:14:23,954 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_FLANN.hdf5
+2024-08-02 15:14:23,958 - root - Correct neighbors rate: 703/1500.0
+2024-08-02 15:14:23,958 - root - Hit percentage: 46.86666666666667%
 
 
-2024-07-23 12:06:37,979 - root - -- PYNN method --
+2024-08-02 15:14:23,959 - root - -- PYNN method --
 
-2024-07-23 12:06:37,979 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
-2024-07-23 12:06:37,980 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_PYNN.hdf5
-2024-07-23 12:06:37,981 - root - Correct neighbors rate: 474/500.0
-2024-07-23 12:06:37,981 - root - Hit percentage: 94.8%
+2024-08-02 15:14:23,959 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
+2024-08-02 15:14:23,975 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_PYNN.hdf5
+2024-08-02 15:14:23,978 - root - Correct neighbors rate: 474/500.0
+2024-08-02 15:14:23,978 - root - Hit percentage: 94.8%
 
 
-2024-07-23 12:06:37,981 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
-2024-07-23 12:06:37,983 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_PYNN.hdf5
-2024-07-23 12:06:37,985 - root - Correct neighbors rate: 970/1000.0
-2024-07-23 12:06:37,985 - root - Hit percentage: 97.0%
+2024-08-02 15:14:23,980 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
+2024-08-02 15:14:24,013 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_PYNN.hdf5
+2024-08-02 15:14:24,018 - root - Correct neighbors rate: 970/1000.0
+2024-08-02 15:14:24,018 - root - Hit percentage: 97.0%
 
 
-2024-07-23 12:06:37,986 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
-2024-07-23 12:06:37,987 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_PYNN.hdf5
-2024-07-23 12:06:37,989 - root - Correct neighbors rate: 1462/1500.0
-2024-07-23 12:06:37,989 - root - Hit percentage: 97.46666666666667%
+2024-08-02 15:14:24,020 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
+2024-08-02 15:14:24,044 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_PYNN.hdf5
+2024-08-02 15:14:24,049 - root - Correct neighbors rate: 1462/1500.0
+2024-08-02 15:14:24,049 - root - Hit percentage: 97.46666666666667%
 
 
-2024-07-23 12:06:37,989 - root - -- GDASC method --
+2024-08-02 15:14:24,050 - root - -- GDASC method --
 
-2024-07-23 12:06:37,990 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
-2024-07-23 12:06:37,991 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:37,992 - root - Correct neighbors rate: 500/500.0
-2024-07-23 12:06:37,992 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,051 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_Exact.hdf5
+2024-08-02 15:14:24,064 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,067 - root - Correct neighbors rate: 500/500.0
+2024-08-02 15:14:24,067 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:37,993 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
-2024-07-23 12:06:37,994 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:37,996 - root - Correct neighbors rate: 1000/1000.0
-2024-07-23 12:06:37,996 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,068 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_Exact.hdf5
+2024-08-02 15:14:24,093 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,097 - root - Correct neighbors rate: 1000/1000.0
+2024-08-02 15:14:24,097 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:37,996 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
-2024-07-23 12:06:37,998 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,000 - root - Correct neighbors rate: 1500/1500.0
-2024-07-23 12:06:38,000 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,099 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_Exact.hdf5
+2024-08-02 15:14:24,102 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_euclidean_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,106 - root - Correct neighbors rate: 1500/1500.0
+2024-08-02 15:14:24,106 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:38,000 - root - ------------  chebyshev distance  --------------------
+2024-08-02 15:14:24,107 - root - ------------  chebyshev distance  --------------------
 
-2024-07-23 12:06:38,000 - root - -- FLANN method --
+2024-08-02 15:14:24,107 - root - -- FLANN method --
 
-2024-07-23 12:06:38,001 - root - -- PYNN method --
+2024-08-02 15:14:24,109 - root - -- PYNN method --
 
-2024-07-23 12:06:38,001 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,002 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_PYNN.hdf5
-2024-07-23 12:06:38,004 - root - Correct neighbors rate: 325/500.0
-2024-07-23 12:06:38,004 - root - Hit percentage: 65.0%
+2024-08-02 15:14:24,121 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,138 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_PYNN.hdf5
+2024-08-02 15:14:24,141 - root - Correct neighbors rate: 325/500.0
+2024-08-02 15:14:24,141 - root - Hit percentage: 65.0%
 
 
-2024-07-23 12:06:38,004 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,006 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_PYNN.hdf5
-2024-07-23 12:06:38,008 - root - Correct neighbors rate: 600/1000.0
-2024-07-23 12:06:38,008 - root - Hit percentage: 60.0%
+2024-08-02 15:14:24,162 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,167 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_PYNN.hdf5
+2024-08-02 15:14:24,171 - root - Correct neighbors rate: 600/1000.0
+2024-08-02 15:14:24,171 - root - Hit percentage: 60.0%
 
 
-2024-07-23 12:06:38,008 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,010 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_PYNN.hdf5
-2024-07-23 12:06:38,011 - root - Correct neighbors rate: 892/1500.0
-2024-07-23 12:06:38,011 - root - Hit percentage: 59.46666666666667%
+2024-08-02 15:14:24,192 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,197 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_PYNN.hdf5
+2024-08-02 15:14:24,202 - root - Correct neighbors rate: 892/1500.0
+2024-08-02 15:14:24,202 - root - Hit percentage: 59.46666666666667%
 
 
-2024-07-23 12:06:38,012 - root - -- GDASC method --
+2024-08-02 15:14:24,203 - root - -- GDASC method --
 
-2024-07-23 12:06:38,012 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,013 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,014 - root - Correct neighbors rate: 337/500.0
-2024-07-23 12:06:38,014 - root - Hit percentage: 67.4%
+2024-08-02 15:14:24,203 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,205 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,208 - root - Correct neighbors rate: 337/500.0
+2024-08-02 15:14:24,209 - root - Hit percentage: 67.4%
 
 
-2024-07-23 12:06:38,015 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,016 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,018 - root - Correct neighbors rate: 613/1000.0
-2024-07-23 12:06:38,018 - root - Hit percentage: 61.3%
+2024-08-02 15:14:24,210 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,243 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,248 - root - Correct neighbors rate: 613/1000.0
+2024-08-02 15:14:24,248 - root - Hit percentage: 61.3%
 
 
-2024-07-23 12:06:38,019 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_Exact.hdf5
-2024-07-23 12:06:38,020 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,022 - root - Correct neighbors rate: 887/1500.0
-2024-07-23 12:06:38,022 - root - Hit percentage: 59.13333333333334%
+2024-08-02 15:14:24,249 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_Exact.hdf5
+2024-08-02 15:14:24,274 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_chebyshev_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,280 - root - Correct neighbors rate: 887/1500.0
+2024-08-02 15:14:24,280 - root - Hit percentage: 59.13333333333334%
 
 
-2024-07-23 12:06:38,022 - root - ------------  cosine distance  --------------------
+2024-08-02 15:14:24,280 - root - ------------  cosine distance  --------------------
 
-2024-07-23 12:06:38,022 - root - -- FLANN method --
+2024-08-02 15:14:24,280 - root - -- FLANN method --
 
-2024-07-23 12:06:38,023 - root - -- PYNN method --
+2024-08-02 15:14:24,282 - root - -- PYNN method --
 
-2024-07-23 12:06:38,023 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_Exact.hdf5
-2024-07-23 12:06:38,024 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_PYNN.hdf5
-2024-07-23 12:06:38,026 - root - Correct neighbors rate: 459/500.0
-2024-07-23 12:06:38,026 - root - Hit percentage: 91.8%
+2024-08-02 15:14:24,294 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_Exact.hdf5
+2024-08-02 15:14:24,309 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_PYNN.hdf5
+2024-08-02 15:14:24,312 - root - Correct neighbors rate: 459/500.0
+2024-08-02 15:14:24,312 - root - Hit percentage: 91.8%
 
 
-2024-07-23 12:06:38,026 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_Exact.hdf5
-2024-07-23 12:06:38,028 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_PYNN.hdf5
-2024-07-23 12:06:38,030 - root - Correct neighbors rate: 962/1000.0
-2024-07-23 12:06:38,030 - root - Hit percentage: 96.2%
+2024-08-02 15:14:24,334 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_Exact.hdf5
+2024-08-02 15:14:24,359 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_PYNN.hdf5
+2024-08-02 15:14:24,363 - root - Correct neighbors rate: 962/1000.0
+2024-08-02 15:14:24,363 - root - Hit percentage: 96.2%
 
 
-2024-07-23 12:06:38,030 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_Exact.hdf5
-2024-07-23 12:06:38,032 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_PYNN.hdf5
-2024-07-23 12:06:38,034 - root - Correct neighbors rate: 1470/1500.0
-2024-07-23 12:06:38,034 - root - Hit percentage: 98.0%
+2024-08-02 15:14:24,386 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_Exact.hdf5
+2024-08-02 15:14:24,420 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_PYNN.hdf5
+2024-08-02 15:14:24,424 - root - Correct neighbors rate: 1470/1500.0
+2024-08-02 15:14:24,424 - root - Hit percentage: 98.0%
 
 
-2024-07-23 12:06:38,034 - root - -- GDASC method --
+2024-08-02 15:14:24,425 - root - -- GDASC method --
 
-2024-07-23 12:06:38,034 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_Exact.hdf5
-2024-07-23 12:06:38,035 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,036 - root - Correct neighbors rate: 500/500.0
-2024-07-23 12:06:38,036 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,426 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_Exact.hdf5
+2024-08-02 15:14:24,438 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_5_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,441 - root - Correct neighbors rate: 500/500.0
+2024-08-02 15:14:24,441 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:38,037 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_Exact.hdf5
-2024-07-23 12:06:38,038 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,040 - root - Correct neighbors rate: 1000/1000.0
-2024-07-23 12:06:38,040 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,443 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_Exact.hdf5
+2024-08-02 15:14:24,468 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_10_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,472 - root - Correct neighbors rate: 1000/1000.0
+2024-08-02 15:14:24,472 - root - Hit percentage: 100.0%
 
 
-2024-07-23 12:06:38,041 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_Exact.hdf5
-2024-07-23 12:06:38,042 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
-2024-07-23 12:06:38,044 - root - Correct neighbors rate: 1500/1500.0
-2024-07-23 12:06:38,044 - root - Hit percentage: 100.0%
+2024-08-02 15:14:24,474 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_Exact.hdf5
+2024-08-02 15:14:24,478 - root - Loading neighbors from ./benchmarks/NearestNeighbors/MNIST/knn_MNIST_15_cosine_GDASC_tg1000_nc500_r80000_kmedoids_fastkmedoids.hdf5
+2024-08-02 15:14:24,484 - root - Correct neighbors rate: 1500/1500.0
+2024-08-02 15:14:24,484 - root - Hit percentage: 100.0%
 
 

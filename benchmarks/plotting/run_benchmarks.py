@@ -13,8 +13,8 @@ knn = [5, 10, 15]
 mask_algorithm = 'kmeans'
 mask_implementation = 'kclust'
 
-gmask_algorithm = 'kmedoids'
-gmask_implementation = 'fastkmedoids'
+gdasc_algorithm = 'kmedoids'
+gdasc_implementation = 'fastkmedoids'
 
 
 if __name__ == '__main__':
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # Show results on a graph
 
     # Obtain recall of each (k=5,10,15) experiment
-    #recalls = benchmark_metrics.get_recall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
+    #recalls = benchmark_metrics.get_recall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline)
 
     # Print recall graph
     # print_compare_recall_graph(recalls)
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # print_recall_heatmap(datasets, distances, methods, knn, recalls)
 
     # Obtain average Recall of all (k=5,10,15) experiments
-    avgRecall = benchmark_metrics.get_avgRecall(datasets, distances, methods, knn, gmask_algorithm, gmask_implementation, baseline)
+    avgRecall = benchmark_metrics.get_avgRecall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_implementation, baseline)
 
     # Print avgRecall graph
     # print_avgRecall_barplot(datasets, distances, methods, avgRecall) #barplot
