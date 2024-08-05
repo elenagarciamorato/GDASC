@@ -1,4 +1,5 @@
 # GDASC - General Distributed Approximate Similarity search with Clustering
+[![DOI](https://zenodo.org/badge/827397858.svg)](https://zenodo.org/doi/10.5281/zenodo.13220359)
 
 ![GDASC](benchmarks/figures/fig_multilayer_structure.png)
 
