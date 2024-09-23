@@ -33,13 +33,9 @@ __Versatile and Adaptable__
 
 GDASC distinguishes itself as a versatile and adaptable framework for data indexing, capable of integrating various clustering algorithms and distance functions.
 
-The proposed approach for constructing the multilevel structure used in the search process is designed to accommodate 
-any clustering algorithm that generates representatives summarizing the underlying dataset and supports the use of 
-arbitrary distances, thereby making the framework adaptable to the specific characteristics of the dataset. 
+The proposed method for building the multilevel structure, therefore used in the search process, is designed to integrate any clustering algorithm that produces representative points summarising the underlying dataset and allows for the use of arbitrary distance measures, making the framework adaptable to the dataset’s specific properties.
 
-This approach significantly broadens the spectrum of compatible problems while offering desirable scalability 
-through the bottom-up construction of the search tree, providing a competitive edge over other state-of-the-art 
-algorithms that require centralisation of all data on a single server.
+This method greatly expands the range of applicable problems while ensuring scalability by utilizing a bottom-up strategy for building the search tree, providing a competitive edge over many current algorithms that rely on centralizing all data on a single server.
 
 
 ### Clustering Algorithms:
@@ -72,11 +68,13 @@ algorithms that require centralisation of all data on a single server.
 
 ## Benchmarks:
 
-To comprehensively evaluate its performance, an extensive series of experiments is conducted across datasets varying in type, size, dimensionality, and sparsity.
+To thoroughly assess its performance, a wide range of experiments is carried out on datasets differing in type, size, dimensionality, and sparsity.
 
 By using the train set, we approach MSA using Euclidean, Manhattan, Chebyshev, and cosine distances, respectively. Then, we perform searches for the 5, 10, and 15 approximate nearest neighbors of every query point contained in the corresponding test set. 
 
-The average recall of the searches conducted is computed and compared with those obtained by employing two other algorithms: PyNN and FLANN.
+Initially, we apply MSA with Euclidean, Manhattan, Chebyshev, and cosine distances on the training set. Subsequently, NSA is utilized to search for the 5, 10, and 15 approximate nearest neighbors of each query point in the test set. 
+To assess GDASC's performance, we calculate the average recall for each distance metric and compare the results with those achieved by two other algorithms: PyNN and FLANN.
+The average recall of the searches conducted is computed and the results are compared with those achieved by two other algorithms: PyNN and FLANN.
 
 ### Datasets:
 | Dataset                                                       | Label       | N         | Dimensionality | High Sparsity | Data Type  | 
@@ -112,10 +110,8 @@ For each dataset, a pointplot illustrates the recall of three different algorith
 
 ![grafos4](benchmarks/figures/4grafos.png)
 
-Our findings not only demonstrate the efficiency of this novel framework 
-but also support the hypothesis that the use of alternative distances beyond 
-the Euclidean metric may yield superior results for nearest-neighbour queries, 
-depending on the specific characteristics of the dataset.
+
+The experimental results not only highlight the efficiency of this novel framework but also support the hypothesis that employing alternative distance measures beyond the Euclidean metric can yield better outcomes for nearest-neighbor queries, depending on the specific characteristics of the dataset.
   
 
 
