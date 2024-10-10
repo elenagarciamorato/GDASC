@@ -52,7 +52,7 @@ def FLANN_nn_search(dataset, seq_buscada, k, distance_type, algorithm):
 
 
 
-    # Find the knn of each point in seq_buscada using this index
+    # Then, find the knn of each point in seq_buscada using the loaded/created index
     lista_indices, lista_coords, lista_dists = [], [], []
 
     # For every point contained on the train set (the complete dataset in this case), find its k

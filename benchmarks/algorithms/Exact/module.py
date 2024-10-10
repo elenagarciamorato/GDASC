@@ -52,5 +52,5 @@ def Exact_nn_search(train_set, test_set, k, tree_index):
 
     # Return knn and their distances with the query points
     #logging.info(str(k) + "-Nearest Neighbors found using an Exact Method + " + distance_type + " distance + " + algorithm + " algorithm.")
-
+    print(f"Los vecinos exactos son: {indices} con distancias {dists}")
     return indices, coords, dists

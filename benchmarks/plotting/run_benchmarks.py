@@ -3,12 +3,15 @@ import benchmarks.plotting.benchmark_metrics as benchmark_metrics
 
 
 # Set var for benchmarks:
-datasets = ['municipios', 'MNIST', 'NYtimes', 'GLOVE']
-#datasets = ['MNIST']
-distances = ['manhattan', 'euclidean', 'chebyshev', 'cosine']
-methods = ['FLANN', 'PYNN', 'GDASC']
+#datasets = ['municipios', 'MNIST', 'NYtimes', 'GLOVE']
+datasets = ['wdbc']
+#distances = ['manhattan', 'euclidean', 'chebyshev', 'cosine']
+distances = ['euclidean']
+methods = ['GDASC']
+#methods = ['FLANN', 'PYNN', 'GDASC']
 baseline = 'Exact'
-knn = [5, 10, 15]
+knn = [5]
+#knn = [5, 10, 15]
 
 mask_algorithm = 'kmeans'
 mask_implementation = 'kclust'
@@ -34,6 +37,6 @@ if __name__ == '__main__':
 
     # Print avgRecall graph
     # print_avgRecall_barplot(datasets, distances, methods, avgRecall) #barplot
-    print_avgRecall_pointplot(datasets, distances, methods, avgRecall) #pointplot
+    #print_avgRecall_pointplot(datasets, distances, methods, avgRecall) #pointplot
 
 exit(0)

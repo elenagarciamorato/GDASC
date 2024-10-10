@@ -53,14 +53,16 @@ def GDASC(config_file):
     coords_vecinos = np.empty([len(vector_testing), k, vector_testing.shape[1]], dtype=float)
     dists_vecinos = np.empty([len(vector_testing), k], dtype=float)
 
+    # For every point in the testing set, find its k nearest neighbors
     for i in range(len(vector_testing)):
 
         punto = vector_testing[i]
         #logging.info('punto %s =%s', i,  punto)
 
         start_time_iter = timer()
-        vecinos_i = gdasc.knn_approximate_search(n_centroides, punto, vector_training, k, distance,
-                                       grupos_capa, puntos_capa, labels_capa, dimensionalidad, float(radio))
+
+        vecinos_i = gdasc.recursive_approximate_knn_search(n_capas, n_centroides, punto, vector_training, k, distance, grupos_capa, puntos_capa, labels_capa, dimensionalidad, float(radio))
+        #vecinos_i = gdasc.knn_approximate_search(n_centroides, punto, vector_training, k, distance, grupos_capa, puntos_capa, labels_capa, dimensionalidad, float(radio))
 
         end_time_iter = timer()
         #logging.info('Index time= %s seconds', end_time_iter - start_time_iter)

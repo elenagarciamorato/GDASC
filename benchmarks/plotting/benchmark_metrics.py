@@ -165,9 +165,9 @@ def get_error_rate(datasets, distances, methods, knn, gdasc_algorithm, gdasc_imp
             r = 40
 
         elif da == 'wdbc':
-            tg = 50
-            nc = 25
-            r = 7500
+            tg = 70
+            nc = 35
+            r = 5000
 
         # Set logging info
         logging.basicConfig(
@@ -245,9 +245,9 @@ def get_recall(datasets, distances, methods, knn, gdasc_algorithm, gdasc_impleme
             r = 40
 
         elif da == 'wdbc':
-            tg = 50
-            nc = 25
-            r = 7500
+            tg = 70
+            nc = 35
+            r = 1500
 
         # Set logging info
         logging.basicConfig(filename='./benchmarks/logs/' + da + '/' + da + "_tg" + str(tg) + "_nc" + str(nc) + "_r" + str(r) + "_" + "GDASC" + "." + str(gdasc_implementation) +'_recall.log',
