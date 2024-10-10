@@ -3,11 +3,11 @@ from sklearn import preprocessing
 from timeit import default_timer as timer
 import logging
 from scipy.spatial import distance
-from GDASC.utils import *
+from GDASC.GDASC.utils import *
 
 # Clustering methods to be used: k-means, k-medoids
 import sklearn.cluster  # k-means sklearn implementation
-from GDASC.clustering_algorithms import kmeans_kclust  # k-means k clust implementation
+from GDASC.GDASC.clustering_algorithms import kmeans_kclust  # k-means k clust implementation
 import sklearn_extra.cluster  # k-medoids sklearn_extra implementation
 import kmedoids as fast_kmedoids  # k-medoids fast_k-medoids (PAM) implementation
 
